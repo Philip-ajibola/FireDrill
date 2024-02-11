@@ -24,7 +24,8 @@ public class ArrayList {
         }
     }
     public void remove(String element) {
-                numberOfElement--;
+        if(isEmpty())throw new IllegalArgumentException("List is Empty");
+        numberOfElement--;
         boolean condition = false;
         for( int count =0;count<elements.length;count++) {
             if (elements[count] != null && elements[count].equals(element)) {
