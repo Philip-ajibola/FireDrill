@@ -100,6 +100,18 @@ public class ArrayListTest {
        // assertThrows(IllegalArgumentException.class, ()-> myList.remove("moh"));
     }
     @Test
+    public void testThatFunctionGiveNumberOfEmptySpaceInSet() {
+        String[] array = {"philip", null, "josh", "gabriel", null, "rebecca"};
+        assertEquals(2, myList.giveNumberOfNull(array));
+    }
+
+    @Test
+    public void testThatFunctionGiveArrayThatCoOtherArrayWithoutPuttingNullElement() {
+        String[] array = {"philip", null, "josh", "gabriel", null, "rebecca"};
+        String[] expected = {"philip", "josh", "gabriel", "rebecca"};
+        assertArrayEquals(expected, myList.giveActualLength(array));
+    }
+    @Test
     public void testThatICanDisPlayListWhenIRemoveAnElement(){
         assertTrue(myList.isEmpty());
         myList.add("dayo");
