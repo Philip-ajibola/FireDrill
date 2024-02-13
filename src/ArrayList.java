@@ -13,14 +13,7 @@ public class ArrayList {
         elements[numberOfElement++]= element;
         elements = giveActualLength(elements);
         }else{
-            String[] temp = new String[2* elements.length];
-            numberOfElement++;
-            for(int count = 0;count< elements.length;count++){
-                temp[count] = elements[count];
-            }
-            temp[elements.length]=element;
-            String[] temp1 = giveActualLength(temp);
-            elements = temp1;
+          resizeArray(element);
         }
     }
     public void remove(String element) {
@@ -132,5 +125,13 @@ public class ArrayList {
     public void clear() {
         for(String string: elements) string = null;
         elements = giveActualLength(elements);
+    }
+    public void resizeArray(String element) {
+        String[] temp = new String[elements.length * 2];
+        int count = 0;
+        for (String string : elements) temp[count++] = string;
+        temp[count] = element;
+        numberOfElement++;
+        elements = giveActualLength(temp);
     }
 }

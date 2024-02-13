@@ -38,6 +38,16 @@ public class MySetTest {
         assertEquals(0, set.size());
 
     }
+    @Test
+    public void testThatResizeFunctionWorksWell(){
+        String element = "josh";
+        set.add("philip");
+        set.add("dayo");
+        set.add("moh");
+        set.resizeArray(element);
+
+        assertEquals(4,set.size());
+    }
 
     @Test
     public void testThatICanAddMoreElementToMySet() {

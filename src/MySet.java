@@ -15,50 +15,17 @@ public class MySet {
         return numberOfElement;
     }
     public boolean add(String element) {
-        String[] temp = new String[elements.length*2];
         boolean condition = false;
         if(numberOfElement< elements.length) {
-            if(numberOfElement>0) {
-                for (int count =1;count<elements.length;count++ ) {
-                    if(count<=numberOfElement) {
-                        if (elements[count - 1] != null && !elements[count - 1].equals(element)) {
-                            condition = true;
-                        } else {
-                            condition = false;
-                            break;
-                        }
-                    }
-                }
-                if(condition){
-                    elements[numberOfElement] = element;
-                numberOfElement++;
-                }
-            }
-                if (numberOfElement == 0) {
-                    elements[numberOfElement] = element;
-                    condition = true;
-                    numberOfElement++;
-                }
+                   if(!contain(element)){
+                       elements[numberOfElement] = element;condition = true;
+                       numberOfElement++;
+                   }
        }else{
-            int counter = 0;
-            for(String string: elements) {
-                if(!string.equals(element)){
-                    temp[counter++] = string;
-                    condition = true;
-                }
-                else {
-                    condition = false;
-                    break;
-                }
-            }
-            if(condition==true) {
-                temp[counter] = element;
-            numberOfElement++;
-            String[] temp1 = giveActualLength(temp);
-            elements = temp1;}
+           condition =  resizeArray(element);
         }
-        if(condition) return condition;
-           return condition;
+        //if(condition) return condition;
+        return condition;
     }
     public boolean remove(String element) {
         if(numberOfElement==0) throw new IllegalArgumentException("set is empty");
@@ -105,14 +72,12 @@ public class MySet {
     public boolean containAll(MySet elements2) {
         boolean condition = false;
         int counter =0;
-      //  for(int count =0; count<elements2.size();count++){
             for(String element : elements2.elements){
                 condition = contain(element);
                 if(condition){
                     counter++;
                 }
             }
-        //}
         if(counter==elements2.size()) return true;
         else return false;
     }
@@ -161,6 +126,7 @@ public class MySet {
         elements = giveActualLength(elements);
     }
     public String toString(){
+    elements = giveActualLength(elements);
         return String.format("%s",Arrays.toString(elements));
     }
 
@@ -169,6 +135,20 @@ public class MySet {
             condition = containAll(elements2);
             if(condition && (elements2.size()==size())) condition = true;
             return condition;
+    }
+    public boolean resizeArray(String element){
+        boolean condition = false;
+        String[] temp = new String[elements.length*2];
+        int count = 0;
+        for(String string: elements){
+            temp[count++] = string;
+        }
+        if(!contain(element)){
+            temp[count] = element;condition=true;
+            numberOfElement++;
+        }
+        elements = giveActualLength(temp);
+        return condition;
     }
 }
 

@@ -43,6 +43,16 @@ public class ArrayListTest {
 
     }
     @Test
+    public void testThatResizeFunctionWorksWell(){
+        String element = "philip";
+        myList.add("philip");
+        myList.add("dayo");
+        myList.add("moh");
+        myList.resizeArray(element);
+
+        assertEquals(4,myList.size());
+    }
+    @Test
     public void testThatICanGetElementInAListWithTheIndex(){
         assertTrue(myList.isEmpty());
         myList.add("dayo");

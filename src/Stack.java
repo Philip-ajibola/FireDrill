@@ -9,6 +9,9 @@ public class Stack {
         this.capacity = capacity;
         elements = new String[capacity];
     }
+    public Stack(){
+
+    }
     public boolean isEmpty() {
         return numberOfElement==0;
     }
@@ -19,7 +22,7 @@ public class Stack {
 
     public String push(String element) {
         if(numberOfElement== capacity)throw new StackOverflowError();
-         elements[numberOfElement] = element;
+        elements[numberOfElement] = element;
         numberOfElement++;
         return element;
     }
