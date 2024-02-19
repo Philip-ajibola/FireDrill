@@ -12,10 +12,6 @@ public enum GeoPoliticalZone {
     }
 
 
-    public boolean IsItStatePoliticalZone() {
-        return true;
-    }
-
     public String[] getStates() {
         return namesOfState;
     }
