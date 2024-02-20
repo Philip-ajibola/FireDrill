@@ -41,9 +41,9 @@ public class Bank {
         myAccount.setPin(pin);
         return myAccount;
     }
-    public void transfer(int accountNumber,int accountRecievingMoney,int amount,String pin){
+    public void transfer(int accountNumber,int accountNumberToBeTransferredTo,int amount,String pin){
         Account myAccount = findAccount(accountNumber);
-        Account myAccount2 = findAccount(accountRecievingMoney);
+        Account myAccount2 = findAccount(accountNumberToBeTransferredTo);
         myAccount.withdraw(amount,pin);
         myAccount2.deposit(amount);
     }

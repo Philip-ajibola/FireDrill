@@ -41,12 +41,12 @@ class BankTest {
     @Test
     public void testThatICanWithdrawMoneyFromAccount(){
         Account account = new Account();
-        account.setPin("1235");
+        account.setPin("1234");
         account.setNumber(2145678911);
         bank.addAccountToAccountList(account);
         bank.deposit(2145678911,300);
-        bank.withdraw(2145678911,200,"1235");
-        assertEquals(100,bank.checkBalance(2145678911,"1235"));
+        bank.withdraw(2145678911,200,"1234");
+        assertEquals(100,bank.checkBalance(2145678911,"1234"));
     }@Test
     public void testThatICanWithdrawMoneyFromAccountMoreTHanOnes(){
         Account account = new Account();
