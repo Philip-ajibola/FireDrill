@@ -20,7 +20,8 @@ public class Account {
 
     public void withdraw(int amount,String pin){
         if(!pin.equals(this.pin))throw new InvalidPinException("Invalid Pin ");
-        if(amount<0 || amount>balance) throw new InvalidAmountException("Invalid Amount");
+        if(amount<0 ) throw new InvalidAmountException("Invalid Amount");
+        if(amount>balance) throw new InsufficientFundsException("Insufficient Funds");
         balance -= amount;
     }
 

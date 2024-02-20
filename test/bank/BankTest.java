@@ -65,6 +65,22 @@ class BankTest {
         assertEquals("Philip Ajibola",account.getName());
     }
     @Test
+    public void testThatICanTransferFromOneAccountToAnother(){
+        Account account = new Account();
+        account.setPin("1234");
+        account.setNumber(2145678911);
+        account.deposit(3_000);
+        bank.addAccountToAccountList(account);
+        Account myAccount = new Account();
+        myAccount.setPin("2324");
+        myAccount.setNumber(2145876912);
+        bank.addAccountToAccountList(myAccount);
+        bank.transfer(2145678911,2145876912,2_500,"1234");
+        assertEquals(2_500,bank.checkBalance(2145876912,"2324"));
+
+
+    }
+    @Test
     public void testThatICanRemoveAccount(){
         Account account = new Account();
         account.setPin("1234");
