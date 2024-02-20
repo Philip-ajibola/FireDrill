@@ -10,7 +10,7 @@ public class BankApp {
            Account account1 = bank.registerCustomer("daniel","goerge","2234");
 
            account.setNumber(2134567321);
-           account1.setNumber(2035647611);
+           account1.setNumber(2035645661);
 
            bank.addAccountToAccountList(account);
             bank.addAccountToAccountList(account1);
