@@ -58,7 +58,7 @@ class AccountTest {
         account.deposit(500);
         account.deposit(1_500);
         account.setPin("1234");
-        assertThrows(InvalidAmountException.class,()->account.withdraw(2_100,"1234"));
+        assertThrows(InsufficientFundsException.class,()->account.withdraw(2_100,"1234"));
     }
     @Test
     public void testThatWhenInValidAmountIsDepositedErrorIsThrown(){
