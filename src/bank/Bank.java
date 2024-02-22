@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 public class Bank {
     private String name;
+    private  int accountNumber ;
     private ArrayList<Account> accounts;
-    public Bank(){
+    public Bank(String name){
         accounts = new ArrayList<>();
     }
 
@@ -15,9 +16,11 @@ public class Bank {
     }
     public Account findAccount(int number){
         Account expectedAccount = null;
-        for(Account account: accounts) if(account.getNumber()==number){
-            expectedAccount=account;
+        for(int count = 0;count<accounts.size();count++){
+            if(accounts.get(count).getNumber()==number){
+            expectedAccount=accounts.get(count);
             break;
+            }
         }
         return expectedAccount;
     }
@@ -36,9 +39,7 @@ public class Bank {
     }
 
     public Account registerCustomer(String firstName, String secondName, String pin) {
-        Account myAccount = new Account();
-        myAccount.setName(firstName+" "+secondName);
-        myAccount.setPin(pin);
+        Account myAccount = new Account(firstName + " " +secondName,generateAccountNumber(),pin);
         return myAccount;
     }
     public void transfer(int accountNumber,int accountNumberToBeTransferredTo,int amount,String pin){
@@ -52,8 +53,13 @@ public class Bank {
         return accounts;
     }
 
-    public void removeAccount(Account account) {
+    public void removeAccount(Account account,String pin) {
+        if(!account.getPin().equals(pin)) throw new InvalidPinException("Invalid Pin");
         for(int count = 0; count < accounts.size();count++)
             if(account == accounts.get(count)) accounts.remove(accounts.get(count));
     }
+   public  int generateAccountNumber(){
+        return ++accountNumber;
+    }
+
 }

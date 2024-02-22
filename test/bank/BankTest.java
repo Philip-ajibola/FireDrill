@@ -6,87 +6,80 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BankTest {
-    private Bank bank;
-    @BeforeEach
-    public void initializeBank(){
-        bank = new Bank();
-
-    }
     @Test
     public void testThatICanCheckBalance(){
-        Account account = new Account();
-        account.setPin("1234");
-        account.setNumber(2145678911);
+        Bank  bank = new Bank("AJIBOLA'S BANK");
+
+        Account account = bank.registerCustomer("firstName","lastName","correctPin");
         bank.addAccountToAccountList(account);
-        assertEquals(0,bank.checkBalance(2145678911,"1234"));
+        assertEquals(0,bank.checkBalance(account.getNumber(),"correctPin"));
 
     }
     @Test
     public void testThatICanFindAccount(){
-        Account account = new Account();
-        account.setPin("1234");
-        account.setNumber(2145678911);
+        Bank  bank = new Bank("AJIBOLA'S BANK");
+        Account account = bank.registerCustomer("firstName","lastName","correctPin");
         bank.addAccountToAccountList(account);
-        assertEquals(account,bank.findAccount(2145678911));
+        assertEquals(account,bank.findAccount(account.getNumber()));
     }
     @Test
     public void testThatICanDepositMoney(){
-        Account account = new Account();
-        account.setPin("1234");
-        account.setNumber(2145678911);
+        Bank  bank = new Bank("AJIBOLA'S BANK");
+        Account account = bank.registerCustomer("firstName","lastName","correctPin");
         bank.addAccountToAccountList(account);
-        bank.deposit(2145678911,300);
-        assertEquals(300,bank.checkBalance(2145678911,"1234"));
+        bank.deposit(account.getNumber(),300);
+        assertEquals(300,bank.checkBalance(account.getNumber(),"correctPin"));
     }
     @Test
     public void testThatICanWithdrawMoneyFromAccount(){
-        Account account = new Account();
-        account.setPin("1234");
-        account.setNumber(2145678911);
+        Bank  bank = new Bank("AJIBOLA'S BANK");
+        Account account = bank.registerCustomer("firstName","lastName","correctPin");
         bank.addAccountToAccountList(account);
-        bank.deposit(2145678911,300);
-        bank.withdraw(2145678911,200,"1234");
-        assertEquals(100,bank.checkBalance(2145678911,"1234"));
+        bank.deposit(account.getNumber(),300);
+        bank.withdraw(account.getNumber(),200,"correctPin");
+        assertEquals(100,bank.checkBalance(account.getNumber(), "correctPin"));
     }@Test
     public void testThatICanWithdrawMoneyFromAccountMoreTHanOnes(){
-        Account account = new Account();
-        account.setPin("1234");
-        account.setNumber(2145678911);
+        Bank  bank = new Bank("AJIBOLA'S BANK");
+        Account account = bank.registerCustomer("firstName","lastName","correctPin");
         bank.addAccountToAccountList(account);
-        bank.deposit(2145678911,300);
-        bank.withdraw(2145678911,200,"1234");
-        bank.withdraw(2145678911,100,"1234");
-        assertEquals(0,bank.checkBalance(2145678911,"1234"));
+        bank.deposit(account.getNumber(),300);
+        bank.withdraw(account.getNumber(),200,"correctPin");
+        bank.withdraw(account.getNumber(), 100,"correctPin");
+        assertEquals(0,bank.checkBalance(account.getNumber(), "correctPin"));
     }
     @Test
     public void testThatAccountCanBeRegistered(){
+        Bank  bank = new Bank("AJIBOLA'S BANK");
         Account account = bank.registerCustomer("Philip","Ajibola","1234");
 
         assertEquals("Philip Ajibola",account.getName());
     }
     @Test
     public void testThatICanTransferFromOneAccountToAnother(){
-        Account account = new Account();
-        account.setPin("1234");
-        account.setNumber(2145678911);
+        Bank  bank = new Bank("AJIBOLA'S BANK");
+        Account account = bank.registerCustomer("firstName","lastName","correctPin");
         account.deposit(3_000);
         bank.addAccountToAccountList(account);
-        Account myAccount = new Account();
-        myAccount.setPin("2324");
-        myAccount.setNumber(2145876912);
+        Account myAccount = bank.registerCustomer("firstName","lastName","correctPin");
         bank.addAccountToAccountList(myAccount);
-        bank.transfer(2145678911,2145876912,2_500,"1234");
-        assertEquals(2_500,bank.checkBalance(2145876912,"2324"));
-
-
+        bank.transfer(account.getNumber(), myAccount.getNumber(), 2_500,"correctPin");
+        assertEquals(2_500,bank.checkBalance(myAccount.getNumber(), "correctPin"));
     }
     @Test
     public void testThatICanRemoveAccount(){
-        Account account = new Account();
-        account.setPin("1234");
-        account.setNumber(2145678911);
+        Bank  bank = new Bank("AJIBOLA'S BANK");
+        Account account = bank.registerCustomer("firstName","lastName","correctPin");
         bank.addAccountToAccountList(account);
-        bank.removeAccount(account);
+        bank.removeAccount(account,"correctPin");
+        System.out.println(account.getNumber());
         assertEquals(0,bank.getAccounts().size());
+    }
+
+    @Test
+    public void testThatICanGenerateAccountNumber(){
+        Bank  bank = new Bank("AJIBOLA'S BANK");
+        Account account = bank.registerCustomer("firstName","lastName","correctPin");
+        assertEquals(1,account.getNumber());
     }
 }
