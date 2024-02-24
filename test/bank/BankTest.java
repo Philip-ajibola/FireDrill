@@ -11,7 +11,6 @@ class BankTest {
         Bank  bank = new Bank("AJIBOLA'S BANK");
 
         Account account = bank.registerCustomer("firstName","lastName","correctPin");
-        bank.addAccountToAccountList(account);
         assertEquals(0,bank.checkBalance(account.getNumber(),"correctPin"));
 
     }
@@ -19,14 +18,12 @@ class BankTest {
     public void testThatICanFindAccount(){
         Bank  bank = new Bank("AJIBOLA'S BANK");
         Account account = bank.registerCustomer("firstName","lastName","correctPin");
-        bank.addAccountToAccountList(account);
         assertEquals(account,bank.findAccount(account.getNumber()));
     }
     @Test
     public void testThatICanDepositMoney(){
         Bank  bank = new Bank("AJIBOLA'S BANK");
         Account account = bank.registerCustomer("firstName","lastName","correctPin");
-        bank.addAccountToAccountList(account);
         bank.deposit(account.getNumber(),300);
         assertEquals(300,bank.checkBalance(account.getNumber(),"correctPin"));
     }
@@ -34,7 +31,6 @@ class BankTest {
     public void testThatICanWithdrawMoneyFromAccount(){
         Bank  bank = new Bank("AJIBOLA'S BANK");
         Account account = bank.registerCustomer("firstName","lastName","correctPin");
-        bank.addAccountToAccountList(account);
         bank.deposit(account.getNumber(),300);
         bank.withdraw(account.getNumber(),200,"correctPin");
         assertEquals(100,bank.checkBalance(account.getNumber(), "correctPin"));
@@ -42,7 +38,6 @@ class BankTest {
     public void testThatICanWithdrawMoneyFromAccountMoreTHanOnes(){
         Bank  bank = new Bank("AJIBOLA'S BANK");
         Account account = bank.registerCustomer("firstName","lastName","correctPin");
-        bank.addAccountToAccountList(account);
         bank.deposit(account.getNumber(),300);
         bank.withdraw(account.getNumber(),200,"correctPin");
         bank.withdraw(account.getNumber(), 100,"correctPin");
@@ -60,9 +55,7 @@ class BankTest {
         Bank  bank = new Bank("AJIBOLA'S BANK");
         Account account = bank.registerCustomer("firstName","lastName","correctPin");
         account.deposit(3_000);
-        bank.addAccountToAccountList(account);
         Account myAccount = bank.registerCustomer("firstName","lastName","correctPin");
-        bank.addAccountToAccountList(myAccount);
         bank.transfer(account.getNumber(), myAccount.getNumber(), 2_500,"correctPin");
         assertEquals(2_500,bank.checkBalance(myAccount.getNumber(), "correctPin"));
     }
@@ -70,7 +63,6 @@ class BankTest {
     public void testThatICanRemoveAccount(){
         Bank  bank = new Bank("AJIBOLA'S BANK");
         Account account = bank.registerCustomer("firstName","lastName","correctPin");
-        bank.addAccountToAccountList(account);
         bank.removeAccount(account,"correctPin");
         System.out.println(account.getNumber());
         assertEquals(0,bank.getAccounts().size());

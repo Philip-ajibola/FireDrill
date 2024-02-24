@@ -22,15 +22,13 @@ public class Bank {
             break;
             }
         }
+        if(expectedAccount == null)throw new AccountNotFoundException("Account Not Found");
         return expectedAccount;
     }
 
     public int checkBalance(int accountNumber, String pin) {
         Account myAccount = findAccount(accountNumber);
        return  myAccount.checkBalance(pin);
-    }
-    public void addAccountToAccountList(Account account){
-        accounts.add(account);
     }
 
     public void withdraw(int accountNumber, int amount, String pin) {
@@ -40,6 +38,7 @@ public class Bank {
 
     public Account registerCustomer(String firstName, String secondName, String pin) {
         Account myAccount = new Account(firstName + " " +secondName,generateAccountNumber(),pin);
+        accounts.add(myAccount);
         return myAccount;
     }
     public void transfer(int accountNumber,int accountNumberToBeTransferredTo,int amount,String pin){
