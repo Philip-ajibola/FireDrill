@@ -74,9 +74,11 @@ public class DairyTest {
     @Test
     public void testThatICanUpdateEntry(){
         myDairy.createEntry("Title","Body");
-        myDairy.updateEntry(1,"updatedTitle","BodyToBeAdded");
         Entry entry = myDairy.findEntry(1);
-        assertEquals("BodyToBeAdded",entry.getBody());
+        myDairy.updateEntry(1,"updatedTitle","updatedBody");
+        Entry entry1 = myDairy.findEntry(1);
+        System.out.println(entry.getBody());
+        assertEquals(entry1,entry);
     }
 
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Dairy {
     private String userName;
     private String password;
-    private boolean islocked;
+    private boolean islocked = true;
     private final ArrayList<Entry> entries;
     private  int idNumber;
 
@@ -23,7 +23,7 @@ public class Dairy {
         islocked = false;
     }
 
-    private boolean isPinNotValid(String password) {
+    public  boolean isPinNotValid(String password) {
         return !this.password.equals(password);
     }
 
@@ -57,7 +57,6 @@ public class Dairy {
     public Entry findEntry(int i) {
         Entry expectedEntry = null;
         for(Entry entry: entries) {
-            //System.out.println(entry.isIdValid(i));
             if(entry.isIdValid(i)) expectedEntry = entry;
         }
         if(expectedEntry==null) throw new AccountNotFoundException("Entry not found");
@@ -67,13 +66,20 @@ public class Dairy {
 
     public void updateEntry(int idNumber, String updatedTitle, String updatedBody) {
         Entry entry = findEntry(idNumber);
-        Entry replacedEntry = new Entry(idNumber,updatedTitle,updatedBody);
-        for( int count = 0; count<entries.size();count++){
-            if(entry==entries.get(count)) entries.set(count,replacedEntry);
+        for(Entry entry1: entries) {
+            if(entry==entry1) {
+                entry1.updateTitle(updatedTitle);
+                entry1.updateBody(updatedBody);
+            }
         }
     }
 
     public String getUserName() {
         return userName;
+    }
+    public int getIdNumber(String title){
+        int entryId = 0;
+        for(Entry entry: entries) if(title.equals(entry.getTitle()))entryId = entry.getId();
+        return entryId;
     }
 }
