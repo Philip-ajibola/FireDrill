@@ -77,7 +77,6 @@ public class DairyTest {
         Entry entry = myDairy.findEntry(1);
         myDairy.updateEntry(1,"updatedTitle","updatedBody");
         Entry entry1 = myDairy.findEntry(1);
-        System.out.println(entry.getBody());
         assertEquals(entry1,entry);
     }
 
