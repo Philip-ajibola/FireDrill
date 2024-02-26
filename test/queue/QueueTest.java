@@ -60,5 +60,12 @@ class QueueTest {
         assertTrue(queue.add("name1"));
         assertThrows(NullPointerException.class,()-> queue.add(null));
     }
+    @Test
+    public void testThatICanRetrieveAndRemoveTheHeadOfQueue(){
+        Queue queue = new Queue(3);
+        assertTrue(queue.add("name"));
+        assertTrue(queue.add("name1"));
+        assertEquals("name",queue.remove());
+    }
 
 }
