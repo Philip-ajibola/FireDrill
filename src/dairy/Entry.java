@@ -30,6 +30,6 @@ public class Entry {
         return title;
     }
     public String toString(){
-        return String.format("Title: \n%s \n\nBody: \n%s",title,body);
+        return String.format("Title: \n%s \n\nBody: \n %s",title,body);
     }
 }
