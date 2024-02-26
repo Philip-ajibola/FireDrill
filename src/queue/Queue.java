@@ -45,4 +45,19 @@ public class Queue {
         }
         return expectedElements;
     }
+
+    public String poll() {
+        String element = elements[0];
+        elements =  rearrangeElements();
+        return element;
+    }
+
+    public String peek() {
+        return elements[0];
+    }
+
+    public String element() {
+        if(elements[0] == null) throw new NoSuchElementException("Queue Is Empty");
+        return elements[0];
+    }
 }

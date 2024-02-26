@@ -2,6 +2,8 @@ package queue;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class QueueTest {
@@ -66,6 +68,47 @@ class QueueTest {
         assertTrue(queue.add("name"));
         assertTrue(queue.add("name1"));
         assertEquals("name",queue.remove());
+    }
+    @Test
+    public void testThatWhenQueueISEmptyRemoveMethodThrowError(){
+        Queue queue = new Queue(3);
+        assertThrows(NoSuchElementException.class, queue::remove);
+    }
+    @Test
+    public void testThatICanRetrieveAndPollTheHeadOfQueue(){
+        Queue queue = new Queue(3);
+        assertTrue(queue.add("name"));
+        assertTrue(queue.add("name1"));
+        assertEquals("name",queue.poll());
+    }
+    @Test
+    public void testThatWhenQueueISEmptyPollMethodReturnNull(){
+        Queue queue = new Queue(3);
+        assertNull(queue.poll());
+    }
+    @Test
+    public void testThatICanPeekTheHeadTheQueue(){
+        Queue queue = new Queue(3);
+        assertTrue(queue.add("name"));
+        assertTrue(queue.add("name1"));
+        assertEquals("name",queue.peek());
+    }
+    @Test
+    public void testThatWhenQueueISEmptyPeekMethodReturnNull(){
+        Queue queue = new Queue(3);
+        assertNull(queue.peek());
+    }
+    @Test
+    public void testThatWhenElementMethodIsCalled_ItReturnTheFirstElementInQueue(){
+        Queue queue = new Queue(3);
+        assertTrue(queue.add("name"));
+        assertTrue(queue.add("name1"));
+        assertEquals("name",queue.element());
+    }
+    @Test
+    public void testThatWhenQueueISEmpty_ElementMethodReturnNull(){
+        Queue queue = new Queue(3);
+        assertThrows(NoSuchElementException.class,queue::element);
     }
 
 }
