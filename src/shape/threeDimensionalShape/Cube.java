@@ -12,4 +12,11 @@ public class Cube extends ThreeDimensionalShape{
         return Math.pow(length,3);
     }
 
+    public void setLength(double length) {
+        this.length = length;
+    }
+    public String toString(){
+        return String.format("ThreeDimensionalShape:\nVolume of Cube: %.2f \n Area of Cube: %.2f",getVolume(),getArea());
+    }
+
 }

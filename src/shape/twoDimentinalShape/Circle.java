@@ -10,5 +10,8 @@ public class Circle extends TwoDimensionalShape {
     public void setRadius(int radius) {
         this.radius = radius;
     }
+    public String toString(){
+        return String.format("TwoDimensionalShape:\nArea of Circle: %.2f",getArea());
+    }
 }
 

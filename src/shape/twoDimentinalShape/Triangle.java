@@ -15,4 +15,7 @@ public class Triangle extends TwoDimensionalShape{
     public void setHeight(double height) {
         this.height = height;
     }
+    public String toString(){
+        return String.format("TwoDimensionalShape:\nArea of Triangle: %.2f",getArea());
+    }
 }

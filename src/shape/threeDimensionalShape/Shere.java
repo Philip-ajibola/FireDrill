@@ -15,4 +15,7 @@ public class Shere extends ThreeDimensionalShape{
     public double getVolume(){
         return (4/3.0)*Math.PI*Math.pow(radius,3);
     }
+    public String toString(){
+        return String.format("ThreeDimensionalShape:\nVolume of Shere: %.2f \n Area of Shere: %.2f",getVolume(),getArea());
+    }
 }
