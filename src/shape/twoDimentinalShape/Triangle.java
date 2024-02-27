@@ -8,5 +8,11 @@ public class Triangle extends TwoDimensionalShape{
     public double getArea(){
         return (1/2.0) *base*height;
     }
+    public void setBase(double base){
+        this.base = base;
+    }
 
+    public void setHeight(double height) {
+        this.height = height;
+    }
 }

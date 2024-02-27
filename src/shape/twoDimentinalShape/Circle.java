@@ -6,5 +6,9 @@ public class Circle extends TwoDimensionalShape {
     public double getArea(){
         return Math.PI * (radius * radius);
     }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
 }
 
