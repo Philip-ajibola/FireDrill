@@ -32,7 +32,7 @@ public class ShapeTest {
         shapes[4] = cube;
         shapes[5] = tetrahedron;
         for(Shape shape1: shapes){
-
+            System.out.println(shape1);
         }
 
     }
