@@ -6,7 +6,7 @@ import shape.threeDimensionalShape.Tetrahedron;
 import shape.twoDimentinalShape.Circle;
 import shape.twoDimentinalShape.Square;
 import shape.twoDimentinalShape.Triangle;
-import shape.twoDimentinalShape.TwoDimensionalShape;
+
 
 public class ShapeTest {
 
