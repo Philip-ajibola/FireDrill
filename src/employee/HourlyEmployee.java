@@ -20,17 +20,14 @@ public class HourlyEmployee extends Employee{
     public int getHour() {
         return hour;
     }
-
     public void setHour(int hour) {
         if(hour<=0 || hour>168) throw new IllegalArgumentException("hour must be greater than 0");
         this.hour = hour;
     }
-
     public double getWages() {
         if(wages<=0.0)throw new IllegalArgumentException("wages must be greater than 0.0");
         return wages;
     }
-
     public void setWages(double wages) {
         this.wages = wages;
     }
