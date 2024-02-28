@@ -22,6 +22,6 @@ public class SalariedEmployee extends Employee{
         return weeklySalary;
     }
     public String toString(){
-        return String.format("SalariedEmployee: \n%s \nWeeklySalary: %.2f",super.toString(),getWeeklySalary());
+        return String.format("SalariedEmployee: \n%s \nWeeklySalary: $%,.2f",super.toString(),getWeeklySalary());
     }
 }

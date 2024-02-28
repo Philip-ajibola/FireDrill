@@ -21,6 +21,6 @@ public class BasePlusCommissionEmployee extends CommisionEmployee {
         this.baseSalary = baseSalary;
     }
     public String toString(){
-        return String.format("BasePlusCommissionEmployee: \n %s \n %.2f",super.toString(),getPayment());
+        return String.format("BasePlusCommissionEmployee: \n%s \nBaseSalary: $%,.2f",super.toString(),getBaseSalary());
     }
 }
