@@ -7,6 +7,8 @@ public class HourlyEmployee extends Employee{
         super(firstName, lastName, socialSecurityNumber);
         if(wages<=0.0)throw new IllegalArgumentException("wages must be greater than 0.0");
         if(hour<=0 || hour>168) throw new IllegalArgumentException("hour must be greater than 0");
+        this.hour = hour;
+        this.wages = wages;
     }
 
     @Override
