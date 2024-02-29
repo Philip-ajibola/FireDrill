@@ -1,4 +1,18 @@
+import java.util.Scanner;
+
 public class SevenSegmentDisplay {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String userInput ="";
+        try{
+            System.out.println("Enter Binary Number To Print The Seven Segment Display");
+             userInput = input.next();
+            displaySevenSegmentDisplay(userInput);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            displaySevenSegmentDisplay(userInput);
+        }
+    }
     public static void displaySevenSegmentDisplay(String binaryInput){
         verifyLength(binaryInput);
         verifyInput(binaryInput);
@@ -30,10 +44,6 @@ public class SevenSegmentDisplay {
     }
     public static boolean verifyTheLastCharIsOne(char lastChar){
         return lastChar == '1';
-    }
-
-    public static void main(String[] args) {
-        displaySevenSegmentDisplay("01100111");
     }
     private static void displaySegment(boolean[] binary){
         printHorizontal(binary[0]);
