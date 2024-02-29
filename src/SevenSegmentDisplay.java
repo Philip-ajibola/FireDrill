@@ -51,5 +51,6 @@ public class SevenSegmentDisplay {
         printHorizontal(binary[6]);
         printVertical(binary[4],binary[2]);
         printHorizontal(binary[3]);
+
     }
 }
