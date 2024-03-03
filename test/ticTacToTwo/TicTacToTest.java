@@ -31,10 +31,23 @@ class TicTacToTest {
         Player[] players = ticTacTo.getPlayers();
         assertEquals(Value.X,players[0].type());
     }
-@Test
+    @Test
     public void testThatPlayerTwoHasSpecificValue(){
         Player[] players = ticTacTo.getPlayers();
         assertEquals(Value.O,players[1].type());
     }
+    @Test
+    public void testThatPlayer1CanPlayAtRowOne(){
+        Player[] players = ticTacTo.getPlayers();
+        players[0].play(ticTacTo,1);
+        assertEquals(Value.X,ticTacTo.getBoard()[0][0]);
+    }
+    @Test
+    public void testThatPlayerCanPlayAtRowOne(){
+        Player[] players = ticTacTo.getPlayers();
+        players[1].play(ticTacTo,1);
+        assertEquals(Value.O,ticTacTo.getBoard()[0][0]);
+    }
+
 
 }
