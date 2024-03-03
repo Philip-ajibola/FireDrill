@@ -1,3 +1,5 @@
+package dataStructure;
+
 import java.util.EmptyStackException;
 
 public class Stack {

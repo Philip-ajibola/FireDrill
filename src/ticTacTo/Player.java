@@ -6,4 +6,8 @@ public class Player {
     public Player(int id){
         PLAYER_ID = id;
     }
+
+    public int getId() {
+        return PLAYER_ID;
+    }
 }

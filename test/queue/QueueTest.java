@@ -1,5 +1,6 @@
 package queue;
 
+import dataStructure.queue.Queue;
 import org.junit.jupiter.api.Test;
 
 import java.util.NoSuchElementException;
