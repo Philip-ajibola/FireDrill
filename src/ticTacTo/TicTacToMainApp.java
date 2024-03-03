@@ -12,7 +12,6 @@ public class TicTacToMainApp {
     }
     private static void playTicTacToGame(TicTacTo ticTacTo) {
         for(int count =1;count<=5;count++){
-            System.out.println(ticTacTo);
             validatePlayer1Response(ticTacTo);
             System.out.println(ticTacTo);
             if(!ticTacTo.getWinner().isEmpty()){
@@ -21,6 +20,7 @@ public class TicTacToMainApp {
             }
             if(count<5) {
                 validatePlayer2Response(ticTacTo);
+                System.out.println(ticTacTo);
                 if(!ticTacTo.getWinner().isEmpty()){
                     System.out.println(ticTacTo.getWinner());
                     break;
@@ -69,6 +69,7 @@ public class TicTacToMainApp {
         System.out.println();
         String userResponse = "";
         do{
+            System.out.println(ticTacTo);
             playTicTacToGame(ticTacTo);
             System.out.print("Do you want to continue playing??? (Yes Or No) ");
             userResponse = input.next();

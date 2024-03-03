@@ -121,7 +121,7 @@ public class TicTacTo {
         return players;
     }
     private String tellTheWinner(Value value){
-        if(BOARD[0][0] == Value.X) return  "Player 1 Wins";
+        if(value == Value.X) return  "Player 1 Wins";
         else return  "Player 2 Wins";
     }
 
