@@ -3,8 +3,7 @@ package ticTacToTwo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class TicTacToTest {
     private TicTacTo ticTacTo;
@@ -48,6 +47,39 @@ class TicTacToTest {
         players[1].play(ticTacTo,1);
         assertEquals(Value.O,ticTacTo.getBoard()[0][0]);
     }
+    @Test
+    public void testThatPlayer1CanPlayAtRowTwo(){
+        Player[] players = ticTacTo.getPlayers();
+        players[0].play(ticTacTo,4);
+        assertEquals(Value.X,ticTacTo.getBoard()[1][0]);
+    }
+    @Test
+    public void testThatPlayerCanPlayAtRowTwo(){
+        Player[] players = ticTacTo.getPlayers();
+        players[1].play(ticTacTo,4);
+        assertEquals(Value.O,ticTacTo.getBoard()[1][0]);
+    }
+    @Test
+    public void testThatPlayer1CanPlayAtRowThree(){
+        Player[] players = ticTacTo.getPlayers();
+        players[0].play(ticTacTo,7);
+        assertEquals(Value.X,ticTacTo.getBoard()[2][0]);
+    }
+    @Test
+    public void testThatPlayerCanPlayAtRowThree(){
+        Player[] players = ticTacTo.getPlayers();
+        players[1].play(ticTacTo,7);
+        assertEquals(Value.O,ticTacTo.getBoard()[2][0]);
+    }
+    @Test
+    public void testThatWhenABoxIsFilledAndPLayerTryToPlayThere(){
+        Player[] players = ticTacTo.getPlayers();
+        players[0].play(ticTacTo,7);
+        assertEquals(Value.X,ticTacTo.getBoard()[2][0]);
+
+        assertThrows(IllegalArgumentException.class,()->players[1].play(ticTacTo,7));
+    }
+
 
 
 }

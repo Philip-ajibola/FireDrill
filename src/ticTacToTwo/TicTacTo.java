@@ -24,6 +24,8 @@ public class TicTacTo {
         boolean condition = set.add(position);
         if(!condition)throw new IllegalArgumentException("Space is already filled");
         checkInputThatFitInForRow1(position,value);
+        checkInputThatFitInForRow2(position,value);
+        checkInputThatFitInForRow3(position,value);
     }
     private void checkInputThatFitInForRow1(int input, Value type){
         if(input >0 && input<=3){
