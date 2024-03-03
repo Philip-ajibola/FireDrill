@@ -90,11 +90,7 @@ public class TicTacTo {
         if(value == Value.X || value == Value.O) return value + "    ";
         else return "" + Value.EMPTY;
     }
-    public String DisplayTheWinner(){
-        return getWinner();
-    }
-
-    private String getWinner() {
+    public String getWinner() {
         String winner = "";
         if(BOARD[0][0] == BOARD[0][1] && BOARD[0][0] == BOARD[0][2] && BOARD[0][0] !=Value.EMPTY){
             if(BOARD[0][0] == Value.X) winner = "Player 1 Wins";
@@ -123,5 +119,12 @@ public class TicTacTo {
         }
         return winner;
     }
+   // public String playGame(){
+
+       // for(int count = 0 ; count< 5; count++){
+           // playGame(players[0],);
+       // }
+
+    //}
 }
 
