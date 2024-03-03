@@ -9,6 +9,9 @@ public class TicTacTo {
     public TicTacTo(){
         Player player1 = new Player(1, Value.X);
         Player player2 = new Player(2,Value.O);
+        PLAYERS[0] = player1;
+        PLAYERS[1] = player2;
+
         fillBoard();
     }
 
