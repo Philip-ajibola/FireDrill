@@ -10,9 +10,7 @@ public class TicTacToMainApp {
         TicTacTo ticTacTo = new TicTacTo();
         playTicTacToContinuously(ticTacTo);
     }
-
     private static void playTicTacToGame(TicTacTo ticTacTo) {
-
         for(int count =1;count<=5;count++){
             System.out.println(ticTacTo);
             validatePlayer1Response(ticTacTo);
@@ -29,9 +27,7 @@ public class TicTacToMainApp {
                 }
 
             }
-
         }
-
     }
     private static void validatePlayer1Response(TicTacTo ticTacTo){
         boolean condition = true;
