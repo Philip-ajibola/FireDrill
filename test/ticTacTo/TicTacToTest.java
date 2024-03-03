@@ -15,7 +15,7 @@ class TicTacToTest {
                 {Value.EMPTY,Value.EMPTY,Value.EMPTY},
                 {Value.EMPTY,Value.EMPTY,Value.EMPTY}
         };
-        System.out.println(ticTacTo.displayBoard());
+
         assertArrayEquals(expectedBoard,board);
     }
     @Test
@@ -29,7 +29,6 @@ class TicTacToTest {
                 {Value.EMPTY,Value.EMPTY,Value.EMPTY}
         };
         ticTacTo.playGame(player,1);
-        System.out.println(ticTacTo.displayBoard());
         assertArrayEquals(expectedBoard,board);
     }
     @Test
@@ -45,7 +44,6 @@ class TicTacToTest {
         };
         ticTacTo.playGame(player,1);
         ticTacTo.playGame(player1,2);
-        System.out.println(ticTacTo.displayBoard());
         assertArrayEquals(expectedBoard,board);
     }
     @Test
@@ -60,7 +58,6 @@ class TicTacToTest {
         };
         ticTacTo.playGame(player,1);
         assertThrows(IllegalArgumentException.class,()->ticTacTo.playGame(player1,1));
-        System.out.println(ticTacTo.displayBoard());
         assertArrayEquals( expectedBoard,ticTacTo.getBoard());
     }
     @Test
@@ -93,7 +90,7 @@ class TicTacToTest {
         ticTacTo.playGame(player,6);
         ticTacTo.playGame(player1,5);
         ticTacTo.playGame(player,2);
-        System.out.println(ticTacTo);
+       // System.out.println(ticTacTo);
 
         assertEquals("The Game Is A Draw",ticTacTo.getWinner());
 
