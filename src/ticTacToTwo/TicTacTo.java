@@ -21,6 +21,7 @@ public class TicTacTo {
     public Value[][] getBoard() {return BOARD;}
     private void fillBoard(){for(Value[] value: BOARD) Arrays.fill(value,Value.EMPTY);}
     public void pickPosition(int position,Value value) {
+        validatePlayerInput(position);
         boolean condition = set.add(position);
         if(!condition)throw new IllegalArgumentException("Space is already filled");
         checkInputThatFitInForRow1(position,value);
@@ -47,5 +48,8 @@ public class TicTacTo {
             else if(input == 8) BOARD[2][1] = type;
             else BOARD[2][2] = type;
         }
+    }
+    private void validatePlayerInput(int input){
+        if(input >9) throw new IllegalArgumentException("Range Out Of Band\n Range Is Between 1 - 9");
     }
 }

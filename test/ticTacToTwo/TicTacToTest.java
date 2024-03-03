@@ -79,6 +79,11 @@ class TicTacToTest {
 
         assertThrows(IllegalArgumentException.class,()->players[1].play(ticTacTo,7));
     }
+    @Test
+    public void testThatWhenUserInputInvalidNumberExceptionIsThrown(){
+        Player[] players = ticTacTo.getPlayers();
+        assertThrows(IllegalArgumentException.class,()->players[1].play(ticTacTo,10));
+    }
 
 
 
