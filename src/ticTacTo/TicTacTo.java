@@ -90,35 +90,27 @@ public class TicTacTo {
         return String.format("%s",displayBoard());
     }
     private String printSpaceIfValueIsOorX(Value value){
-        if(value == Value.X || value == Value.O) return value + "    ";
+        if(value == Value.X || value == Value.O) return"  " + value + "  ";
         else return "" + Value.EMPTY;
     }
     public String getWinner() {
         String winner = "";
         if(BOARD[0][0] == BOARD[0][1] && BOARD[0][0] == BOARD[0][2] && BOARD[0][0] !=Value.EMPTY){
-            if(BOARD[0][0] == Value.X) winner = "Player 1 Wins";
-            else winner = "Player 2 Wins";
+            winner = tellTheWinner(BOARD[0][0]);
         } else if(BOARD[1][0] == BOARD[1][1] && BOARD[1][0] == BOARD[1][2] && BOARD[1][0] !=Value.EMPTY){
-            if(BOARD[1][0] == Value.X) winner = "Player 1 Wins";
-            else winner = "Player 2 Wins";
+            winner = tellTheWinner(BOARD[1][0]);
         }else if(BOARD[2][0] == BOARD[2][1] && BOARD[2][0] == BOARD[2][2] && BOARD[2][0] !=Value.EMPTY){
-            if(BOARD[2][0] == Value.X) winner = "Player 1 Wins";
-            else winner = "Player 2 Wins";
+            winner = tellTheWinner(BOARD[2][0]);
         }else if(BOARD[0][0] == BOARD[1][0] && BOARD[0][0] == BOARD[2][0] && BOARD[0][0] !=Value.EMPTY){
-            if(BOARD[0][0] == Value.X) winner = "Player 1 Wins";
-            else winner = "Player 2 Wins";
+            winner = tellTheWinner(BOARD[0][0]);
         }else if(BOARD[0][1] == BOARD[1][1] && BOARD[0][1] == BOARD[2][1] && BOARD[0][1] !=Value.EMPTY){
-            if(BOARD[0][1] == Value.X) winner = "Player 1 Wins";
-            else winner = "Player 2 Wins";
+            winner = tellTheWinner(BOARD[0][1]);
         }else if(BOARD[0][2] == BOARD[1][2] && BOARD[0][2] == BOARD[2][2] && BOARD[0][2] !=Value.EMPTY){
-            if(BOARD[0][2] == Value.X) winner = "Player 1 Wins";
-            else winner = "Player 2 Wins";
+            winner = tellTheWinner(BOARD[0][2]);
         }else if(BOARD[0][0] == BOARD[1][1] && BOARD[0][0] == BOARD[2][2] && BOARD[0][0] !=Value.EMPTY){
-            if(BOARD[0][0] == Value.X) winner = "Player 1 Wins";
-            else winner = "Player 2 Wins";
+            winner = tellTheWinner(BOARD[0][0]);
         }else if(BOARD[0][2] == BOARD[1][1] && BOARD[0][2] == BOARD[2][0] && BOARD[0][2] !=Value.EMPTY){
-            if(BOARD[0][2] == Value.X) winner = "Player 1 Wins";
-            else winner = "Player 2 Wins";
+            winner = tellTheWinner(BOARD[0][2]);
         }
         else{
             if(checker == 9) winner = "The Game Is A Draw";
@@ -127,6 +119,10 @@ public class TicTacTo {
     }
     public Player[] getPlayers(){
         return players;
+    }
+    private String tellTheWinner(Value value){
+        if(BOARD[0][0] == Value.X) return  "Player 1 Wins";
+        else return  "Player 2 Wins";
     }
 
 }
