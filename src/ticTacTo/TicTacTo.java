@@ -9,6 +9,7 @@ public class TicTacTo {
     private final Value[][] BOARD = new Value[3][3];
     private Player[] players = new Player[2];
     private Set<Integer> set ;
+    private int checker;
     public TicTacTo(){
         fillValuesWithEmpty();
         set = new HashSet<>();
@@ -25,6 +26,8 @@ public class TicTacTo {
         }
     }
     public void playGame(Player player,int number){
+            checker++;
+            if(number>9 || number<1)throw new IllegalArgumentException("Enter Valid Box Number");
             boolean condition = set.add(number);
             if(!condition)throw new IllegalArgumentException("Space is already filled");
             checkInputForPlayer(player,number);
@@ -117,14 +120,14 @@ public class TicTacTo {
             if(BOARD[0][2] == Value.X) winner = "Player 1 Wins";
             else winner = "Player 2 Wins";
         }
+        else{
+            if(checker == 9) winner = "The Game Is A Draw";
+        }
         return winner;
     }
-   // public String playGame(){
+    public Player[] getPlayers(){
+        return players;
+    }
 
-       // for(int count = 0 ; count< 5; count++){
-           // playGame(players[0],);
-       // }
-
-    //}
 }
 
