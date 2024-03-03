@@ -1,5 +1,6 @@
 package ticTacTo;
 
+import javax.swing.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -71,10 +72,10 @@ public class TicTacToMainApp {
         do{
             System.out.println(ticTacTo);
             playTicTacToGame(ticTacTo);
-            System.out.print("Do you want to continue playing??? (Yes Or No) ");
+            System.out.println("Do you want to continue playing??? (Yes Or No) ");
             userResponse = input.next();
             while(!userResponse.equalsIgnoreCase("yes") && !userResponse.equalsIgnoreCase("no")){
-                System.out.print("Please enter Yes Or No To Continue ");
+                System.out.println("Please enter Yes Or No To Continue ");
                 userResponse = input.next();
             }
             ticTacTo = new TicTacTo();
