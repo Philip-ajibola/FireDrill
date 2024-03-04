@@ -89,9 +89,27 @@ public class TicTacTo {
         else if(checker == 9){ winner = "The Game Is A Draw";}
         return winner;
     }
+    public String displayBoard(){
+        String expectedString = "";
+        for (Value[] values : BOARD) {
+            for (int counter = 0; counter < values.length; counter++) {
+
+                expectedString += printSpaceIfValueIsOorX(values[counter]) + " |";
+            }
+            expectedString +="\n______________________\n";
+        }
+        return expectedString;
+    }
+    private String printSpaceIfValueIsOorX(Value value){
+        if(value == Value.X || value == Value.O) return"  " + value + "  ";
+        else return "" + ticTacTo.Value.EMPTY;
+    }
+    public String toString(){
+        return String.format("%s",displayBoard());
+    }
+
     private String tellTheWinner(Value value){
         if(value == Value.X) return  "Player 1 Wins";
         else return  "Player 2 Wins";
     }
-
 }
