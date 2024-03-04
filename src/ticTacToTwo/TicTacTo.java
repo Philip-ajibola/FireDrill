@@ -98,28 +98,20 @@ public class TicTacTo {
     }
     private String checkIfWinnerIsInRow() {
             for (int count = 0; count < BOARD.length; count++) {
-                if (BOARD[count][0] == BOARD[count][1] && BOARD[count][0] == BOARD[count][2] && BOARD[count][0] != Value.EMPTY) {
-                    return tellTheWinner(BOARD[count][0]);
-                }
+                if (BOARD[count][0] == BOARD[count][1] && BOARD[count][0] == BOARD[count][2] && BOARD[count][0] != Value.EMPTY) return tellTheWinner(BOARD[count][0]);
             }
         return "";
     }
     private String checkIfWinnerIsInColumn() {
         for (int count = 0; count < BOARD.length; count++) {
-            if (BOARD[0][count] == BOARD[1][count] && BOARD[0][count] == BOARD[2][count] && BOARD[0][count] != Value.EMPTY) {
-                return tellTheWinner(BOARD[0][count]);
-            }
+            if (BOARD[0][count] == BOARD[1][count] && BOARD[0][count] == BOARD[2][count] && BOARD[0][count] != Value.EMPTY) return tellTheWinner(BOARD[0][count]);
         }
         return "";
     }
     private String checkIfWinnerWinsDiagonally(){
         String winner = "";
-         if (BOARD[0][0] == BOARD[1][1] && BOARD[0][0] == BOARD[2][2] && BOARD[0][0] !=Value.EMPTY){
-            winner =  tellTheWinner(BOARD[0][0]);
-        }
-        else if(BOARD[0][2] == BOARD[1][1] && BOARD[0][2] == BOARD[2][0] && BOARD[0][2] !=Value.EMPTY){
-            winner =  tellTheWinner(BOARD[0][2]);
-        }
+         if (BOARD[0][0] == BOARD[1][1] && BOARD[0][0] == BOARD[2][2] && BOARD[0][0] !=Value.EMPTY)winner =  tellTheWinner(BOARD[0][0]);
+        else if(BOARD[0][2] == BOARD[1][1] && BOARD[0][2] == BOARD[2][0] && BOARD[0][2] !=Value.EMPTY)winner =  tellTheWinner(BOARD[0][2]);
         return winner;
     }
 }
