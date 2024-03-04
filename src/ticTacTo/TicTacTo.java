@@ -86,7 +86,6 @@ public class TicTacTo {
         }
         return expectedString;
     }
-
     public String toString(){
         return String.format("%s",displayBoard());
     }
