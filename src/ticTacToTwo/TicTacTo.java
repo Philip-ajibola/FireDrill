@@ -8,6 +8,7 @@ public class TicTacTo {
     private final Player[] PLAYERS = new Player[2];
     private final Value[][] BOARD = new Value[3][3];
     private  Set<Integer> set ;
+    private int checker;
 
     public TicTacTo(){
         Player player1 = new Player(1, Value.X);
@@ -19,8 +20,10 @@ public class TicTacTo {
     }
     public Player[] getPlayers() {return PLAYERS;}
     public Value[][] getBoard() {return BOARD;}
+
     private void fillBoard(){for(Value[] value: BOARD) Arrays.fill(value,Value.EMPTY);}
     public void pickPosition(int position,Value value) {
+        checker++;
         validatePlayerInput(position);
         boolean condition = set.add(position);
         if(!condition)throw new IllegalArgumentException("Space is already filled");
@@ -52,4 +55,43 @@ public class TicTacTo {
     private void validatePlayerInput(int input){
         if(input >9) throw new IllegalArgumentException("Range Out Of Band\n Range Is Between 1 - 9");
     }
+
+    public String getWinner() {
+        return determineWinner();
+    }
+
+    private String determineWinner() {
+        String winner = "";
+        if(BOARD[0][0] == BOARD[0][1] && BOARD[0][0] == BOARD[0][2] && BOARD[0][0] !=Value.EMPTY){
+            winner = tellTheWinner(BOARD[0][0]);
+        }
+        else if(BOARD[1][0] == BOARD[1][1] && BOARD[1][0] == BOARD[1][2] && BOARD[1][0] !=Value.EMPTY){
+            winner =  tellTheWinner(BOARD[1][0]);
+        }
+        else if(BOARD[2][0] == BOARD[2][1] && BOARD[2][0] == BOARD[2][2] && BOARD[2][0] !=Value.EMPTY){
+            winner = tellTheWinner(BOARD[2][0]);
+        }
+        else if(BOARD[0][0] == BOARD[1][0] && BOARD[0][0] == BOARD[2][0] && BOARD[0][0] !=Value.EMPTY){
+            winner = tellTheWinner(BOARD[0][0]);
+        }
+        else if(BOARD[0][1] == BOARD[1][1] && BOARD[0][1] == BOARD[2][1] && BOARD[0][1] !=Value.EMPTY){
+            winner = tellTheWinner(BOARD[0][1]);
+        }
+        else if(BOARD[0][2] == BOARD[1][2] && BOARD[0][2] == BOARD[2][2] && BOARD[0][2] !=Value.EMPTY){
+            winner = tellTheWinner(BOARD[0][2]);
+        }
+        else if(BOARD[0][0] == BOARD[1][1] && BOARD[0][0] == BOARD[2][2] && BOARD[0][0] !=Value.EMPTY){
+            winner =  tellTheWinner(BOARD[0][0]);
+        }
+        else if(BOARD[0][2] == BOARD[1][1] && BOARD[0][2] == BOARD[2][0] && BOARD[0][2] !=Value.EMPTY){
+            winner =  tellTheWinner(BOARD[0][2]);
+        }
+        else if(checker == 9){ winner = "The Game Is A Draw";}
+        return winner;
+    }
+    private String tellTheWinner(Value value){
+        if(value == Value.X) return  "Player 1 Wins";
+        else return  "Player 2 Wins";
+    }
+
 }

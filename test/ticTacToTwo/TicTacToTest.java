@@ -84,6 +84,95 @@ class TicTacToTest {
         Player[] players = ticTacTo.getPlayers();
         assertThrows(IllegalArgumentException.class,()->players[1].play(ticTacTo,10));
     }
+    @Test
+    public void testThatPlayerCanWinWhenTheValueAreSameOnRoleOne(){
+        Player[] players = ticTacTo.getPlayers();
+        players[0].play(ticTacTo,1);
+        players[1].play(ticTacTo,7);
+        players[0].play(ticTacTo,2);
+        players[1].play(ticTacTo,6);
+        players[0].play(ticTacTo,3);
+        assertEquals("Player 1 Wins",ticTacTo.getWinner());
+    }
+    @Test
+    public void testThatPlayerCanWinWhenTheValueAreSameOnRoleTwo(){
+        Player[] players = ticTacTo.getPlayers();
+        players[0].play(ticTacTo,4);
+        players[1].play(ticTacTo,7);
+        players[0].play(ticTacTo,5);
+        players[1].play(ticTacTo,3);
+        players[0].play(ticTacTo,6);
+        assertEquals("Player 1 Wins",ticTacTo.getWinner());
+    }
+    @Test
+    public void testThatPlayerCanWinWhenTheValueAreSameOnRoleThree(){
+        Player[] players = ticTacTo.getPlayers();
+        players[0].play(ticTacTo,4);
+        players[1].play(ticTacTo,7);
+        players[0].play(ticTacTo,1);
+        players[1].play(ticTacTo,8);
+        players[0].play(ticTacTo,6);
+        players[1].play(ticTacTo,9);
+        assertEquals("Player 2 Wins",ticTacTo.getWinner());
+    }
+@Test
+    public void testThatPlayerCanWinWhenTheValueAreSameOnColumnOne(){
+        Player[] players = ticTacTo.getPlayers();
+        players[0].play(ticTacTo,1);
+        players[1].play(ticTacTo,7);
+        players[0].play(ticTacTo,2);
+        players[1].play(ticTacTo,6);
+        players[0].play(ticTacTo,3);
+        assertEquals("Player 1 Wins",ticTacTo.getWinner());
+    }
+    @Test
+    public void testThatPlayerCanWinWhenTheValueAreSameOnColumnTwo(){
+        Player[] players = ticTacTo.getPlayers();
+        players[0].play(ticTacTo,2);
+        players[1].play(ticTacTo,7);
+        players[0].play(ticTacTo,5);
+        players[1].play(ticTacTo,3);
+        players[0].play(ticTacTo,8);
+        assertEquals("Player 1 Wins",ticTacTo.getWinner());
+    }
+    @Test
+    public void testThatPlayerCanWinWhenTheValueAreSameOnColumnThree(){
+        Player[] players = ticTacTo.getPlayers();
+        players[0].play(ticTacTo,3);
+        players[1].play(ticTacTo,2);
+        players[0].play(ticTacTo,6);
+        players[1].play(ticTacTo,5);
+        players[0].play(ticTacTo,9);
+        players[1].play(ticTacTo,1);
+        assertEquals("Player 1 Wins",ticTacTo.getWinner());
+    }
+    @Test
+    public void testThatPlayerCanWinWhenTheValueAreSameOnTheLeftDiagonal(){
+        Player[] players = ticTacTo.getPlayers();
+        players[0].play(ticTacTo,4);
+        players[1].play(ticTacTo,1);
+        players[0].play(ticTacTo,2);
+        players[1].play(ticTacTo,5);
+        players[0].play(ticTacTo,6);
+        players[1].play(ticTacTo,9);
+        assertEquals("Player 2 Wins",ticTacTo.getWinner());
+    }
+    @Test
+    public void testThatPlayersCanPlayDraw(){
+        Player[] players = ticTacTo.getPlayers();
+        players[0].play(ticTacTo,1);
+        players[1].play(ticTacTo,2);
+        players[0].play(ticTacTo,3);
+        players[1].play(ticTacTo,5);
+        players[0].play(ticTacTo,4);
+        players[1].play(ticTacTo,7);
+        players[0].play(ticTacTo,6);
+        players[1].play(ticTacTo,9);
+        players[0].play(ticTacTo,8);
+
+        assertEquals("The Game Is A Draw",ticTacTo.getWinner());
+    }
+
 
 
 
