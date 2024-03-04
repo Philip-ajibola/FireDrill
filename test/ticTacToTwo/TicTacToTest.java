@@ -36,6 +36,16 @@ class TicTacToTest {
         assertEquals(Value.O,players[1].type());
     }
     @Test
+    public void testThatPlayer1HaveSpecificID(){
+        Player[] players = ticTacTo.getPlayers();
+        assertEquals(1,players[0].id());
+    }
+    @Test
+    public void testThatPlayer2HaveSpecificID(){
+        Player[] players = ticTacTo.getPlayers();
+        assertEquals(2,players[1].id());
+    }
+    @Test
     public void testThatPlayer1CanPlayAtRowOne(){
         Player[] players = ticTacTo.getPlayers();
         players[0].play(ticTacTo,1);
@@ -172,8 +182,5 @@ class TicTacToTest {
 
         assertEquals("The Game Is A Draw",ticTacTo.getWinner());
     }
-
-
-
 
 }
