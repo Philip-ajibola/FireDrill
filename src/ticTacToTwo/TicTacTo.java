@@ -74,8 +74,7 @@ public class TicTacTo {
         return winner;
     }
     public String displayBoard(){
-        String expectedString = "";
-        for (Value[] values : BOARD) {
+        String expectedString = "";        for (Value[] values : BOARD) {
             for (int counter = 0; counter < values.length; counter++) {
 
                 expectedString += printSpaceIfValueIsOorX(values[counter]) + " |";
