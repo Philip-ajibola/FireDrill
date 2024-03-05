@@ -85,7 +85,7 @@ public class TicTacTo {
     }
     private String printSpaceIfValueIsOorX(Value value){
         if(value == Value.X || value == Value.O) return"  " + value + "  ";
-        else return "" + ticTacTo.Value.EMPTY;
+        else return "" + Value.EMPTY;
     }
     public String toString(){
         return String.format("%s",displayBoard());
