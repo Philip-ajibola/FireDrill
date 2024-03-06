@@ -32,30 +32,18 @@ public class TicTacTo {
         checkInputThatFitInForRow3(position,value);
     }
     private void checkInputThatFitInForRow1(int input, Value type){
-        if(input >0 && input<=3){
-            if(input ==1) BOARD[0][0] = type;
-            else if(input == 2) BOARD[0][1] = type;
-            else BOARD[0][2] = type;
-        }
+        if(input >0 && input<=3)BOARD[0][input-1] = type;
+
     }
     private void checkInputThatFitInForRow2(int input, Value type){
-        if(input >3 && input<=6){
-            if(input ==4) BOARD[1][0] = type;
-            else if(input == 5) BOARD[1][1] = type;
-            else BOARD[1][2] = type;
-        }
+        if(input >3 && input<=6)BOARD[1][input-4] = type;
     }
     private void checkInputThatFitInForRow3(int input, Value type){
-        if(input >6 && input<=9){
-            if(input ==7) BOARD[2][0] = type;
-            else if(input == 8) BOARD[2][1] = type;
-            else BOARD[2][2] = type;
-        }
+        if(input >6 && input<=9)BOARD[2][input-7] = type;
     }
     private void validatePlayerInput(int input){
         if(input >9) throw new IllegalArgumentException("Range Out Of Band\n Range Is Between 1 - 9");
     }
-
     public String getWinner() {
         return determineWinner();
     }

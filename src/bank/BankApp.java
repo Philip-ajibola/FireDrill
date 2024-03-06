@@ -8,7 +8,6 @@ public class BankApp {
     private static Bank bank;
     private static Scanner input = new Scanner(System.in);
 
-
     public static void main(String[] args) {
         bank = new Bank("AJIBOLA'S BANK");
         boolean condition2 = true;
@@ -32,8 +31,6 @@ public class BankApp {
             System.out.println("Input MisMatch ");
             displayApp();
         }
-
-
 
     }
 
@@ -159,6 +156,5 @@ public class BankApp {
             displayOptionOfWhatUserShouldDo(account);
         }
     }
-
 
 }
