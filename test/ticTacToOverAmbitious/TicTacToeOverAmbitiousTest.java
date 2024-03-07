@@ -131,6 +131,19 @@ class TicTacToeOverAmbitiousTest {
         assertEquals("Player 2 Wins",ticTacTo.getWinner());
     }
     @Test
+    public void testThatPlayerCanWinWhenTheValueAreSameOnRoleFour(){
+        Player[] players = ticTacTo.getPlayers();
+        players[0].play(ticTacTo,4);
+        players[1].play(ticTacTo,13);
+        players[0].play(ticTacTo,1);
+        players[1].play(ticTacTo,14);
+        players[0].play(ticTacTo,6);
+        players[1].play(ticTacTo,15);
+        players[0].play(ticTacTo,2);
+        players[1].play(ticTacTo,16);
+        assertEquals("Player 2 Wins",ticTacTo.getWinner());
+    }
+    @Test
     public void testThatPlayerCanWinWhenTheValueAreSameOnColumnOne(){
         Player[] players = ticTacTo.getPlayers();
         players[0].play(ticTacTo,1);
