@@ -1,6 +1,7 @@
 package dispatchRiderWagesCalculator;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,8 +10,11 @@ class DispatchRiderWagesCalculatorTest {
 
     @BeforeEach
     public void createCalculator(){
-        riderWagesCalculator = DispatchRiderWagesCalculator();
+        riderWagesCalculator = new DispatchRiderWagesCalculator();
     }
+    @Test
+    public void testThatWhenNumberOfDeliveryIsNotOfTo50_NumberOfDeliveryIsMultipliedBy160AndAddedToBaseSalary(){
 
+    }
 
 }
