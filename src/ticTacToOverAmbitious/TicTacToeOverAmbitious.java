@@ -71,7 +71,7 @@ public class TicTacToeOverAmbitious{
                 for (Value value : values) {
                     expectedString.append(printSpaceIfValueIsOorX(value)).append(" |");
                 }
-                expectedString.append("\n___________________________________\n");
+                expectedString.append("\n____________________________\n");
             }
             return expectedString.toString();
         }
