@@ -33,8 +33,13 @@ class DispatchRiderWagesCalculatorTest {
     }
     @Test
     public void testWhenNumberOfDeliveryIsZero_ExceptionIsThrown(){
-        assertThrows(IllegalArgumentException.class,()->DispatchRiderWagesCalculator.calculateRidersWages(0));
+        assertThrows(IllegalArgumentException.class,()->DispatchRiderWagesCalculator.calculateRidersWages(-1));
 
+    }
+    @Test
+    public void testThatWhenNODeliveryIsMadeRiderReceiveBasePayOnly(){
+        int expectedSalary = DispatchRiderWagesCalculator.calculateRidersWages(0);
+        assertEquals(5_000,expectedSalary);
     }
 
 
