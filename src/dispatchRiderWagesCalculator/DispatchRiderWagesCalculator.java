@@ -4,6 +4,7 @@ public class DispatchRiderWagesCalculator {
 
 
     public static int calculateRidersWages(int numberOfDeliveryMade) {
+        validateNumberOfDelivery(numberOfDeliveryMade);
         return checkNumberOfDeliveryMade(numberOfDeliveryMade);
     }
     private static int checkNumberOfDeliveryMade(int numberOfDeliveryMade){
