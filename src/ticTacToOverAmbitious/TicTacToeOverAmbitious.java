@@ -43,7 +43,7 @@ public class TicTacToeOverAmbitious{
             if(input >8 && input<=12)BOARD[2][input-9] = type;
         }
         private void checkInputThatFitInForRow4(int input, Value type){
-        if(input >12 && input<=16)BOARD[2][input-12] = type;
+        if(input >12 && input<=16)BOARD[2][input-13] = type;
         }
         private void validatePlayerInput(int input){
             if(input >16) throw new IllegalArgumentException("Range Out Of Band\n Range Is Between 1 - 9");
