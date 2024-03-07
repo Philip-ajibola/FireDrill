@@ -17,7 +17,6 @@ class TicTacToeOverAmbitiousTest {
         Player[] players = ticTacTo.getPlayers();
         assertEquals(2,players.length);
     }
-
     @Test
     public void testThatBoardValuesAtPointOfCreationIsEmpty(){
         Value empty = Value.EMPTY;
