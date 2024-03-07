@@ -221,15 +221,22 @@ class TicTacToeOverAmbitiousTest {
     @Test
     public void testThatPlayersCanPlayDraw(){
         Player[] players = ticTacTo.getPlayers();
-        players[0].play(ticTacTo,1);
-        players[1].play(ticTacTo,2);
-        players[0].play(ticTacTo,3);
-        players[1].play(ticTacTo,5);
-        players[0].play(ticTacTo,4);
-        players[1].play(ticTacTo,7);
         players[0].play(ticTacTo,6);
-        players[1].play(ticTacTo,9);
+        players[1].play(ticTacTo,3);
+        players[0].play(ticTacTo,12);
+        players[1].play(ticTacTo,7);
+        players[0].play(ticTacTo,11);
+        players[1].play(ticTacTo,4);
+        players[0].play(ticTacTo,13);
+        players[1].play(ticTacTo,2);
+        players[0].play(ticTacTo,1);
+        players[1].play(ticTacTo,16);
         players[0].play(ticTacTo,8);
+        players[1].play(ticTacTo,10);
+        players[0].play(ticTacTo,15);
+        players[1].play(ticTacTo,14);
+        players[0].play(ticTacTo,5);
+        players[1].play(ticTacTo,9);
 
         assertEquals("The Game Is A Draw",ticTacTo.getWinner());
     }
