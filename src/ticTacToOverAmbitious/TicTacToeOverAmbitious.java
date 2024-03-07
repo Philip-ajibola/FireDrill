@@ -10,7 +10,7 @@ import java.util.Set;
 public class TicTacToeOverAmbitious{
         private final Player[] PLAYERS = new Player[2];
         private final Value[][] BOARD = new Value[4][4];
-        private Set<Integer> set ;
+        private  final Set<Integer> set ;
         private int checker;
 
         public TicTacToeOverAmbitious(){
@@ -69,14 +69,14 @@ public class TicTacToeOverAmbitious{
             return winner;
         }
         public String displayBoard(){
-            String expectedString = "";        for (Value[] values : BOARD) {
-                for (int counter = 0; counter < values.length; counter++) {
-
-                    expectedString += printSpaceIfValueIsOorX(values[counter]) + " |";
+            StringBuilder expectedString = new StringBuilder();
+            for (Value[] values : BOARD) {
+                for (Value value : values) {
+                    expectedString.append(printSpaceIfValueIsOorX(value)).append(" |");
                 }
-                expectedString +="\n___________________________________\n";
+                expectedString.append("\n___________________________________\n");
             }
-            return expectedString;
+            return expectedString.toString();
         }
         private String printSpaceIfValueIsOorX(Value value){
             if(value == Value.X || value == Value.O) return"  " + value + "  ";
@@ -92,20 +92,20 @@ public class TicTacToeOverAmbitious{
         }
         private String checkIfWinnerIsInRow() {
             for (int count = 0; count < BOARD.length; count++) {
-                if (BOARD[count][0] == BOARD[count][1] && BOARD[count][0] == BOARD[count][2] && BOARD[count][0] != Value.EMPTY) return tellTheWinner(BOARD[count][0]);
+                if (BOARD[count][0] == BOARD[count][1] && BOARD[count][0] == BOARD[count][2] && BOARD[count][0] == BOARD[count][3] && BOARD[count][0] != Value.EMPTY) return tellTheWinner(BOARD[count][0]);
             }
             return "";
         }
         private String checkIfWinnerIsInColumn() {
             for (int count = 0; count < BOARD.length; count++) {
-                if (BOARD[0][count] == BOARD[1][count] && BOARD[0][count] == BOARD[2][count] && BOARD[0][count] != Value.EMPTY) return tellTheWinner(BOARD[0][count]);
+                if (BOARD[0][count] == BOARD[1][count] && BOARD[0][count] == BOARD[2][count] && BOARD[0][count] == BOARD[3][count] && BOARD[0][count] != Value.EMPTY) return tellTheWinner(BOARD[0][count]);
             }
             return "";
         }
         private String checkIfWinnerWinsDiagonally(){
             String winner = "";
-            if (BOARD[0][0] == BOARD[1][1] && BOARD[0][0] == BOARD[2][2] && BOARD[0][0] !=Value.EMPTY)winner =  tellTheWinner(BOARD[0][0]);
-            else if(BOARD[0][2] == BOARD[1][1] && BOARD[0][2] == BOARD[2][0] && BOARD[0][2] !=Value.EMPTY)winner =  tellTheWinner(BOARD[0][2]);
+            if (BOARD[0][0] == BOARD[1][1] && BOARD[0][0] == BOARD[2][2] && BOARD[0][0] == BOARD[3][3] && BOARD[0][0] !=Value.EMPTY)winner =  tellTheWinner(BOARD[0][0]);
+            else if(BOARD[3][0] == BOARD[2][1] && BOARD[3][0] == BOARD[1][2] && BOARD[3][0] == BOARD[0][3] &&  BOARD[0][3] !=Value.EMPTY)winner =  tellTheWinner(BOARD[0][2]);
             return winner;
         }
     }
