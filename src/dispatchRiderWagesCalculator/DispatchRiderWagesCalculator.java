@@ -16,6 +16,5 @@ public class DispatchRiderWagesCalculator {
     }
     private static void validateNumberOfDelivery(int numberOfDelivery){
         if(numberOfDelivery < 0 || numberOfDelivery>100) throw new IllegalArgumentException("Invalid Delivery number");
-
     }
 }
