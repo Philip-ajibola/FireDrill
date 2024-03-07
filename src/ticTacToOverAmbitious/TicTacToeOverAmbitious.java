@@ -43,7 +43,7 @@ public class TicTacToeOverAmbitious{
             if(input >8 && input<=12)BOARD[2][input-9] = type;
         }
         private void checkInputThatFitInForRow4(int input, Value type){
-        if(input >12 && input<=16)BOARD[2][input-13] = type;
+        if(input >12 && input<=16)BOARD[3][input-13] = type;
         }
         private void validatePlayerInput(int input){
             if(input >16) throw new IllegalArgumentException("Range Out Of Band\n Range Is Between 1 - 9");
@@ -96,13 +96,14 @@ public class TicTacToeOverAmbitious{
         private String checkIfWinnerIsInColumn() {
             for (int count = 0; count < BOARD.length; count++) {
                 if (BOARD[0][count] == BOARD[1][count] && BOARD[0][count] == BOARD[2][count] && BOARD[0][count] == BOARD[3][count] && BOARD[0][count] != Value.EMPTY) return tellTheWinner(BOARD[0][count]);
+
             }
             return "";
         }
         private String checkIfWinnerWinsDiagonally(){
             String winner = "";
             if (BOARD[0][0] == BOARD[1][1] && BOARD[0][0] == BOARD[2][2] && BOARD[0][0] == BOARD[3][3] && BOARD[0][0] !=Value.EMPTY)winner =  tellTheWinner(BOARD[0][0]);
-            else if(BOARD[3][0] == BOARD[2][1] && BOARD[3][0] == BOARD[1][2] && BOARD[3][0] == BOARD[0][3] &&  BOARD[0][3] !=Value.EMPTY)winner =  tellTheWinner(BOARD[0][2]);
+            else if(BOARD[0][3] == BOARD[1][2] && BOARD[0][3] == BOARD[2][1] && BOARD[0][3] == BOARD[3][0] &&  BOARD[0][3] !=Value.EMPTY)winner =  tellTheWinner(BOARD[0][3]);
             return winner;
         }
     }
