@@ -33,19 +33,23 @@ public class TicTacToeOverAmbitious{
             checkInputThatFitInForRow1(position,value);
             checkInputThatFitInForRow2(position,value);
             checkInputThatFitInForRow3(position,value);
+            checkInputThatFitInForRow4(position,value);
         }
         private void checkInputThatFitInForRow1(int input, Value type){
-            if(input >0 && input<=3)BOARD[0][input-1] = type;
+            if(input >0 && input<=4)BOARD[0][input-1] = type;
 
         }
         private void checkInputThatFitInForRow2(int input, Value type){
-            if(input >3 && input<=6)BOARD[1][input-4] = type;
+            if(input >4 && input<=8)BOARD[1][input-5] = type;
         }
         private void checkInputThatFitInForRow3(int input, Value type){
-            if(input >6 && input<=9)BOARD[2][input-7] = type;
+            if(input >8 && input<=12)BOARD[2][input-9] = type;
+        }
+        private void checkInputThatFitInForRow4(int input, Value type){
+        if(input >12 && input<=16)BOARD[2][input-12] = type;
         }
         private void validatePlayerInput(int input){
-            if(input >9) throw new IllegalArgumentException("Range Out Of Band\n Range Is Between 1 - 9");
+            if(input >16) throw new IllegalArgumentException("Range Out Of Band\n Range Is Between 1 - 9");
         }
         public String getWinner() {
             return determineWinner();
@@ -61,7 +65,7 @@ public class TicTacToeOverAmbitious{
             else if(!checkIfWinnerWinsDiagonally().isEmpty()){
                 winner = checkIfWinnerWinsDiagonally();
             }
-            else if(checker == 9){ winner = "The Game Is A Draw";}
+            else if(checker == 16){ winner = "The Game Is A Draw";}
             return winner;
         }
         public String displayBoard(){
@@ -70,7 +74,7 @@ public class TicTacToeOverAmbitious{
 
                     expectedString += printSpaceIfValueIsOorX(values[counter]) + " |";
                 }
-                expectedString +="\n______________________\n";
+                expectedString +="\n___________________________________\n";
             }
             return expectedString;
         }
