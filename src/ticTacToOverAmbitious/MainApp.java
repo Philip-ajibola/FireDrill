@@ -65,7 +65,7 @@ public class MainApp {
         }
 
         public static void playTicTacToContinuously(TicTacToeOverAmbitious ticTacTo){
-            System.out.println("Welcome To The TicTacTo Game\n Player One Uses X And Player Two Uses O ");
+            System.out.println("Welcome To The TicTacTo Game\n Player One Uses X And Player Two Uses O \n Note This is a 4 by 4 TicTacTeo game it might get tricky :) ");
             System.out.println();
             String userResponse = "";
             do{
