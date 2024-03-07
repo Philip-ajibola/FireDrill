@@ -1,8 +1,5 @@
 package ticTacToOverAmbitious;
 
-import ticTacToTwo.Player;
-import ticTacToTwo.Value;
-
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
