@@ -21,5 +21,17 @@ class DispatchRiderWagesCalculatorTest {
         assertEquals(16_400,expectedSalary);
     }
 
+    @Test
+    public void testThatWhenNumberOfDeliveryIsAtTheRangeOf60_69_NumberOfDeliveryIsMultipliedBy200AndAddedToBaseSalary(){
+        int expectedSalary = DispatchRiderWagesCalculator.calculateRidersWages(68);
+        assertEquals(22_000,expectedSalary);
+    }
+    @Test
+    public void testThatWhenNumberOfDeliveryIsGreaterThan_NumberOfDeliveryIsMultipliedBy200AndAddedToBaseSalary(){
+        int expectedSalary = DispatchRiderWagesCalculator.calculateRidersWages(80);
+        assertEquals(45_000,expectedSalary);
+    }
+
+
 
 }
