@@ -31,6 +31,11 @@ class DispatchRiderWagesCalculatorTest {
         int expectedSalary = DispatchRiderWagesCalculator.calculateRidersWages(80);
         assertEquals(45_000,expectedSalary);
     }
+    @Test
+    public void testWhenNumberOfDeliveryIsZero_ExceptionIsThrown(){
+        assertThrows(IllegalArgumentException.class,()->DispatchRiderWagesCalculator.calculateRidersWages(0));
+
+    }
 
 
 
