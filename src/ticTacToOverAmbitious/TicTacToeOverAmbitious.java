@@ -23,10 +23,10 @@ public class TicTacToeOverAmbitious{
 
         private void fillBoard(){for(Value[] value: BOARD) Arrays.fill(value,Value.EMPTY);}
         public void pickPosition(int position,Value value) {
-            checker++;
             validatePlayerInput(position);
             boolean condition = set.add(position);
             if(!condition)throw new IllegalArgumentException("Space is already filled");
+            checker++;
             checkInputThatFitInForRow1(position,value);
             checkInputThatFitInForRow2(position,value);
             checkInputThatFitInForRow3(position,value);
