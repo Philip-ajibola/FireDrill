@@ -13,10 +13,10 @@ public class StringMethods {
             System.out.println("s1 is not equal to \"hello\"");
         }
         if(s1 == "hello"){
-            System.out.println("they are referencing same position in the memory ");
+            System.out.println("they are referencing same object in the memory ");
         }
         else {
-            System.out.println("they are not referencing same position in the memory ");
+            System.out.println("they are not referencing same object in the memory ");
 
         }
         if(s3.equalsIgnoreCase(s4)){
