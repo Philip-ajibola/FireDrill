@@ -12,6 +12,13 @@ public class StringMethods {
         }else{
             System.out.println("s1 is not equal to \"hello\"");
         }
+        if(s1 == "hello"){
+            System.out.println("they are referencing same position in the memory ");
+        }
+        else {
+            System.out.println("they are not referencing same position in the memory ");
+
+        }
         if(s3.equalsIgnoreCase(s4)){
             System.out.printf("\"%s equals %s with case ignored%n\"",s3,s4);
         }else{
