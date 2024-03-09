@@ -4,7 +4,7 @@ public class StringStartEnd {
     public static void main(String[] args) {
         String[] strings = {"started","starting","ended","ending"};
         for(String string: strings){
-            if(string.startsWith("st")) System.out.printf("%s start with \"st\" %n",string);
+            if(string.startsWith("s")) System.out.printf("%s start with \"s\" %n",string);
         }
         System.out.println();
         for(String string: strings){
