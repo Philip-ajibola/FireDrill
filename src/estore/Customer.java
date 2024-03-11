@@ -3,7 +3,7 @@ package estore;
 import java.util.ArrayList;
 
 public class Customer extends User{
-    private ShoppingCart shoppingCart = null;
+    private ShoppingCart shoppingCart = new ShoppingCart();
 
 
     public Customer(String name, String homeAddress, String emailAddress, String phoneNumber, String password, int age) {
