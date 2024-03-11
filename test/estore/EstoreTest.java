@@ -65,5 +65,28 @@ class EstoreTest {
         customer.addItemToCart(item);
         assertEquals(1,customer.getItems().size());
     }
+    @Test
+    public void testThatCustomerCanAddDifferentItemsToShoppingCart(){
+        Customer customer = new Customer("name","10 Yaba road","ajibola@gmail.com","09027531222","passwword",15);
+        Product product = new Product( 1, "productName",45.0,ProductCategory.ELECTRONICS,"description");
+        Product product1 = new Product( 1, "productName",30,ProductCategory.GROCERIES,"description");
+        Item item = new Item(product,2);
+        Item item1 = new Item(product1,6);
+        customer.addItemToCart(item);
+        customer.addItemToCart(item1);
+        assertEquals(2,customer.getItems().size());
+    }
+    @Test
+    public void testThatCustomerCanRemoveItemFromShoppingCart(){
+        Customer customer = new Customer("name","10 Yaba road","ajibola@gmail.com","09027531222","passwword",15);
+        Product product = new Product( 1, "productName",45.0,ProductCategory.ELECTRONICS,"description");
+        Product product1 = new Product( 1, "productName",30,ProductCategory.GROCERIES,"description");
+        Item item = new Item(product,2);
+        Item item1 = new Item(product1,6);
+        customer.addItemToCart(item);
+        customer.addItemToCart(item1);
+        customer.removeItem(item);
+        assertEquals(1,customer.getItems().size());
+    }
 
 }

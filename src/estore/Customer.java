@@ -23,4 +23,8 @@ public class Customer extends User{
     public ArrayList<Item> getItems() {
         return shoppingCart.getItems();
     }
+
+    public void removeItem(Item item) {
+        shoppingCart.removeItem(item);
+    }
 }

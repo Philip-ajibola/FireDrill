@@ -14,4 +14,8 @@ public class ShoppingCart {
     public ArrayList<Item> getItems() {
         return items;
     }
+
+    public void removeItem(Item item) {
+        items.removeIf(item1 -> item == item1);
+    }
 }
