@@ -15,4 +15,9 @@ public class Seller extends User {
     public void addProduct(Estore estore,Product product) {
         estore.addProductToListOfProduct(product);
     }
+
+    public void removeProduct(Estore estore,String productName) {
+        estore.removeProductFromList(productName);
+
+    }
 }

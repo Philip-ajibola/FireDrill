@@ -40,6 +40,18 @@ class EstoreTest {
 
     }
     @Test
+    public void testThatSellerCanRemoveProductFromListOfProduct(){
+        Estore estore = new Estore();
+        estore.addSeller("name","10 Yaba road","ajibola@gmail.com","09027531222","passwword",15);
+        Seller seller = estore.findSellerWithSellerPhoneNumber("09027531222");
+        Product product = new Product( 1, "productName",45.0,ProductCategory.ELECTRONICS,"description");
+        seller.addProduct(estore,product);
+        assertEquals(product,estore.getProducts("productName"));
+        seller.removeProduct(estore,"productName");
+        assertEquals(0,estore.getListOfProduct().size());
+
+    }
+    @Test
     public void testThatCustomerCanCreateAccount(){
         Estore estore = new Estore();
         estore.addCustomer("name","10 Yaba road","ajibola@gmail.com","09027531222","passwword",15);

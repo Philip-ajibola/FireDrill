@@ -49,4 +49,12 @@ public class Estore {
     public ArrayList<Customer> getCustomers() {
         return customers;
     }
+
+    public void removeProductFromList(String productName) {
+        products.removeIf(product -> productName.equals(product.productName()));
+    }
+
+    public ArrayList<Product> getListOfProduct() {
+        return products;
+    }
 }
