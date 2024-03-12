@@ -27,8 +27,8 @@ public class BankApp {
         try{
             int response = Integer.parseInt(userResponse);
             displayResponseToUserOption(response);
-        }catch (InputMismatchException e){
-            System.out.println("Input MisMatch ");
+        }catch (Exception e){
+            print("Input MisMatch ");
             displayApp();
         }
 
@@ -40,12 +40,20 @@ public class BankApp {
     private static void displayResponseToUserOption(int userResponse){
         switch(userResponse){
             case 1 -> createAccount();
-            case 2 -> {
-                int accountNumber = Integer.parseInt(input("Enter account Number"));
-                displayOptionOfWhatUserShouldDo(bank.findAccount(accountNumber));}
+            case 2 ->loginWithAccountNumber();
             case 3 -> print("Thank You For Choosing Our Bank");
-            default ->  {print("Invalid Input");displayResponseToUserOption(userResponse);}
+            default ->  {print("Invalid Input");displayApp();}
         }
+    }
+    private static void loginWithAccountNumber(){
+            try {
+                int accountNumber = Integer.parseInt(input("Enter account Number"));
+                displayOptionOfWhatUserShouldDo(bank.findAccount(accountNumber));
+            } catch (Exception e) {
+                print("" + e);
+            }finally {
+                displayApp();
+            }
     }
     private static void displayOptionOfWhatUserShouldDo(Account account) {
         String userResponse = input("""
@@ -74,13 +82,30 @@ public class BankApp {
     }
 
     private static void createAccount() {
-        String firstName = input("Enter Your First Name ");
-        String lastName = input("Enter Your Last Name ");
-        String pin = verifyPin();
-        displayOptionOfWhatUserShouldDo(bank.registerCustomer(firstName,lastName,pin));
+        collectUserName();
+    }
+    private static void collectUserName(){
+        boolean condition = true;
+        while (condition){
+        try{
+            String firstName = input("Enter Your First Name ");
+            String lastName = input("Enter Your Last Name ");
+            verifyUserName(firstName,lastName);
+            String pin = verifyPin();
+            displayOptionOfWhatUserShouldDo(bank.registerCustomer(firstName,lastName,pin));
+            condition = false;
+        }catch (Exception e){
+            print("" + e);
+        }
+        }
+    }
+    private static void verifyUserName(String firstName, String lastName){
+        if(!firstName.matches("[a-zA-Z]+"))throw new IllegalArgumentException("First name but be of alphabetical numbers alone ");
+        if(!lastName.matches("[a-zA-Z]+"))throw new IllegalArgumentException("Last name but be of alphabetical numbers alone ");
     }
     private static String verifyPin(){
         String pin = input("Enter Your Pin ");
+        if(!pin.matches("[0-9]+"))throw new InvalidPinException("Pin should be of digit only ");
         String verifyPin = input("verify Your Pin ");
         if(!pin.equals(verifyPin)) throw new InvalidPinException("Invalid Pin");
         return pin;
@@ -120,6 +145,7 @@ public class BankApp {
         String amount = input("Enter  The Amount You Want To Transfer ");
         String pin = input("Enter Your Pin ");
         try{
+            if(!amount.matches("[0-9]+"))throw new IllegalArgumentException("Invalid Amount");
             int expectedAccount = Integer.parseInt(accountToTransferTo);
             int amountToBeTransferred = Integer.parseInt(amount);
             Account account1 = bank.findAccount(expectedAccount);
@@ -134,6 +160,7 @@ public class BankApp {
     private static void deposit(Account account) {
         String amount = input("Enter Amount You Want To deposit");
         try{
+                if(!amount.matches("[0-9]+"))throw new IllegalArgumentException("Invalid Amount Entered ");
                 int amountToBeDeposited = Integer.parseInt(amount);
                 bank.deposit(account.getNumber(),amountToBeDeposited);
                 print("Money Deposited Successfully ");
@@ -147,6 +174,7 @@ public class BankApp {
         String amount = input("Enter Amount You Want To withdraw");
         String pin = input("Enter Your Pin");
         try {
+            if(!amount.matches("[0-9]+"))throw new IllegalArgumentException("Invalid Amount");
             int amountToBeWithdrawn = Integer.parseInt(amount);
             bank.withdraw(account.getNumber(), amountToBeWithdrawn,pin);
             print("Withdrawal SuccessFul");
