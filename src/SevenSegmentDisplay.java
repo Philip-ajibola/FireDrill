@@ -4,31 +4,48 @@ public class SevenSegmentDisplay {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String userInput ="";
-        try{
-            System.out.println("Enter Binary Number To Print The Seven Segment Display");
-             userInput = input.next();
-            displaySevenSegmentDisplay(userInput);
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-            displaySevenSegmentDisplay(userInput);
+        boolean condition = true;
+        while (condition) {
+            try {
+                System.out.println("Enter Binary Number To Print The Seven Segment Display");
+                userInput = input.next();
+                System.out.println(displaySevenSegmentDisplay(userInput));
+                condition = false;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                input.next();
+            }
         }
     }
-    public static void displaySevenSegmentDisplay(String binaryInput){
+    public static String displaySevenSegmentDisplay(String binaryInput){
         verifyLength(binaryInput);
         verifyInput(binaryInput);
         if(verifyTheLastCharIsOne(binaryInput.charAt(7))){
         boolean[] binary = changeStringToBoolean(binaryInput);
-        displaySegment(binary);}
+        return displaySegment(binary);}
+        return "";
     }
-    private static void printHorizontal(boolean condition){
-        if (condition) System.out.println(" # # # #");
+    private static String printHorizontal(boolean condition){
+        if (condition) return " # # # #\n";
+        return "";
     }
-    private static void printVertical(boolean condition1 , boolean condition2){
-        if(condition1 && condition2)for(int count = 0; count<4;count++) System.out.println("#       #");
+    private static String printVertical(boolean condition1 , boolean condition2){
+        String expectedSegment = "";
+        if(condition1 && condition2)for(int count = 0; count<4;count++){
+            expectedSegment +="#       #\n";
+           // if(count<3)expectedSegment += "\n";
+        }
 
-        if(condition1 && !condition2)for(int count = 0; count<4;count++) System.out.println("#       ");
+        if(condition1 && !condition2)for(int count = 0; count<4;count++) {
+            expectedSegment +="#       \n";
+            //if(count<3)expectedSegment += "\n";
+        }
 
-        if(!condition1 && condition2)for(int count = 0; count<4;count++) System.out.println("       #");
+        if(!condition1 && condition2)for(int count = 0; count<4;count++) {
+            expectedSegment +="       #\n";
+            //if(count<3)expectedSegment += "\n";
+        }
+        return expectedSegment;
     }
     private static void verifyInput(String input){
         for(int count = 0;count<input.length();count++)
@@ -45,12 +62,13 @@ public class SevenSegmentDisplay {
     public static boolean verifyTheLastCharIsOne(char lastChar){
         return lastChar == '1';
     }
-    private static void displaySegment(boolean[] binary){
-        printHorizontal(binary[0]);
-        printVertical(binary[5],binary[1]);
-        printHorizontal(binary[6]);
-        printVertical(binary[4],binary[2]);
-        printHorizontal(binary[3]);
-
+    private static String displaySegment(boolean[] binary){
+        String segment ="";
+        segment += printHorizontal(binary[0]);
+        segment += printVertical(binary[5],binary[1]);
+        segment+=printHorizontal(binary[6]);
+        segment += printVertical(binary[4],binary[2]);
+        segment+=printHorizontal(binary[3]);
+        return segment;
     }
 }
