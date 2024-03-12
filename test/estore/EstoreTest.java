@@ -11,5 +11,11 @@ class EstoreTest {
         estore.addSeller("name","10 Yaba road","ajibola@gmail.com","09027531222","passwword",15);
         assertEquals(1,estore.getNumberOfSeller());
     }
+    @Test
+    public void testThatSellerCanAddItemToListOfItem(){
+        Estore estore = new Estore();
+        estore.addSeller("name","10 Yaba road","ajibola@gmail.com","09027531222","passwword",15);
+        Seller seller = estore.findSellerWithSellerPhoneNumber("09027531222");
+    }
 
 }
