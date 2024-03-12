@@ -2,18 +2,28 @@ package dairy;
 
 
 import javax.swing.*;
+import java.util.InputMismatchException;
 
 public class MainApplication {
     public static void main(String[] args) {
         mainMenu();
     }
     private static Dairy createDairy(){
-
         String userName = input("Welcome To My Dairy \nWe Help You Keep track Of Your Daily Activities And Lot More \nEnter Your Name ");
+        if(!userName.matches("[a-zA-Z]+")){
+            if(userName.isEmpty())print("Your Name Should not be empty");
+            print("Your name should consist of alphabetical number alone ");
+            createDairy();
+        }
         String userPassword = input("Create Password");
+        if(userPassword.trim().isEmpty()){
+            print("Your Password shouldn't contain space bar alone ");
+            createDairy();
+        }
         return new Dairy(userName,userPassword);
     }
     private static void mainMenu(){
+
         Dairy dairy = createDairy();
         displayOption(dairy);
     }
@@ -78,19 +88,21 @@ public class MainApplication {
         return JOptionPane.showInputDialog(null,prompt);
     }
     private static void displayOption(Dairy dairy){
-       checkIfDairyIsLocked(dairy);
+      // checkIfDairyIsLocked(dairy);
         try {
-            int userResponse = Integer.parseInt(input("""
+            String userResponse = input("""
                     <<<<<<< What would you love to do today >>>>>
                         [(1)] Add Entry         [(2)] Update Entry
                         
                         [(3)] Find Entry        [(4)] Delete Entry
                         
                         [(5)] Lock Entry        [(6)] Exit App
-                    """));
-            displayTheResponseOfUser(dairy,userResponse);
+                    """);
+            validateUserResponse(userResponse);
+            displayTheResponseOfUser(dairy,Integer.parseInt(userResponse));
         }catch(Exception e){
             print(" " + e.getMessage());
+            displayOption(dairy);
         }
     }
     private static void displayTheResponseOfUser(Dairy dairy,int userResponse){
@@ -98,6 +110,7 @@ public class MainApplication {
             case 1-> addEntry(dairy);
             case 2-> updateEntry(dairy);
             case 3-> findEntryById(dairy);
+            case 4-> deleteEntry(dairy);
             case 5-> lockDairy(dairy);
             case 6-> print("Good Bye");
             default -> {print("Invalid Response");displayOption(dairy);}
@@ -118,5 +131,8 @@ public class MainApplication {
         dairy.isPinNotValid(password);
         dairy.unlockDairy(password);
         print("Dairy Unlocked Successfully ");
+    }
+    private static void validateUserResponse(String userResponse){
+        if(!userResponse.matches("[0-9]+"))throw new InputMismatchException("Invalid input");
     }
 }
