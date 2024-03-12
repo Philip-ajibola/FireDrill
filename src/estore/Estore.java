@@ -1,7 +1,5 @@
 package estore;
 
-import dataStructure.MySet;
-
 import java.util.ArrayList;
 
 public class Estore {
@@ -16,8 +14,8 @@ public class Estore {
         sellers.add(seller);
     }
 
-    public int getNumberOfSeller() {
-        return sellers.size();
+    public ArrayList<Seller> getSellers() {
+        return sellers;
     }
 
     public Seller findSellerWithSellerPhoneNumber(String phoneNumber) {

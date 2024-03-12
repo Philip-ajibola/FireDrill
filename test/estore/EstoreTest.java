@@ -9,13 +9,21 @@ class EstoreTest {
     public void testThatUserCanBeAddedToEstore(){
         Estore estore = new Estore();
         estore.addSeller("name","10 Yaba road","ajibola@gmail.com","09027531222","passwword",15);
-        assertEquals(1,estore.getNumberOfSeller());
+        assertEquals(1,estore.getSellers().size());
+    }
+    @Test
+    public void testThatSellerCanBeFoundBySellerPhoneNumber(){
+        Estore estore = new Estore();
+        estore.addSeller("name","10 Yaba road","ajibola@gmail.com","09027531222","passwword",15);
+        Seller seller = estore.findSellerWithSellerPhoneNumber("09027531222");
+            assertEquals(seller,estore.getSellers().get(0));
     }
     @Test
     public void testThatSellerCanAddItemToListOfItem(){
         Estore estore = new Estore();
         estore.addSeller("name","10 Yaba road","ajibola@gmail.com","09027531222","passwword",15);
         Seller seller = estore.findSellerWithSellerPhoneNumber("09027531222");
+
     }
 
 }
