@@ -13,7 +13,7 @@ public class SevenSegmentDisplay {
                 condition = false;
             } catch (Exception e) {
                 System.out.println(e.getMessage());
-                input.next();
+                System.out.println();
             }
         }
     }
