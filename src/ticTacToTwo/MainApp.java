@@ -34,33 +34,39 @@ public class MainApp {
             try {
                 collectPlayer1Input(ticTacTo);
                 condition = false;
-            } catch (IllegalArgumentException | InputMismatchException e) {
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
     }
     private static void collectPlayer1Input(TicTacTo ticTacTo){
-        int player1Response = 0;
+        String player1Response = "";
         System.out.printf("Player %d Enter The Number Of Box You Want to Play ", ticTacTo.getPlayers()[0].id());
-        player1Response = input.nextInt();
-        ticTacTo.pickPosition( player1Response,ticTacTo.getPlayers()[0].type());
+        player1Response = input.next();
+        checkEachCharOfUSerInput(player1Response);
+        ticTacTo.pickPosition( Integer.parseInt(player1Response),ticTacTo.getPlayers()[0].type());
     }
+    private static void checkEachCharOfUSerInput(String userInput){
+        if(!userInput.matches("[0-10]+"))throw new IllegalArgumentException("Invalid Input \n Enter a valid input ");
+    }
+
     private static void validatePlayer2Response(TicTacTo ticTacTo){
         boolean condition = true;
         while(condition) {
             try {
                 collectPlayer2Input(ticTacTo);
                 condition = false;
-            } catch (IllegalArgumentException | InputMismatchException e) {
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
     }
     private static void collectPlayer2Input(TicTacTo ticTacTo){
-        int player1Response = 0;
+        String player1Response = "";
         System.out.printf("Player %d Enter The Number Of Box You Want to Play ", ticTacTo.getPlayers()[1].id());
-        player1Response = input.nextInt();
-        ticTacTo.pickPosition( player1Response,ticTacTo.getPlayers()[1].type());
+        player1Response = input.next();
+        checkEachCharOfUSerInput(player1Response);
+        ticTacTo.pickPosition( Integer.parseInt(player1Response),ticTacTo.getPlayers()[1].type());
     }
 
     public static void playTicTacToContinuously(TicTacTo ticTacTo){
