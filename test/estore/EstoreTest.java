@@ -23,6 +23,8 @@ class EstoreTest {
         Estore estore = new Estore();
         estore.addSeller("name","10 Yaba road","ajibola@gmail.com","09027531222","passwword",15);
         Seller seller = estore.findSellerWithSellerPhoneNumber("09027531222");
+        Product product = new Product();
+        seller.addProduct(estore,product);
 
     }
 

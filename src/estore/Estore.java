@@ -23,4 +23,7 @@ public class Estore {
         for(Seller seller: sellers)if(phoneNumber.equals(seller.getPhoneNumber())) expectedSeller =  seller;
         return expectedSeller;
     }
+
+    public void addProductToListOfProduct(Product product) {
+    }
 }
