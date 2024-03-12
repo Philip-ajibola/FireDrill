@@ -90,6 +90,60 @@ class SevenSegmentDisplayTest {
         expectedSegment +=" # # # #\n";
         assertEquals(expectedSegment,SevenSegmentDisplay.displaySevenSegmentDisplay("10111111"));
     }
+    @Test
+    void testThat7CanBeDisplayed(){
+        String expectedSegment = " # # # #\n";
+        for(int count = 0; count<4;count++) {
+            expectedSegment +="        #\n";
+        }
+        for(int count = 0; count<4;count++) {
+            expectedSegment +="        #\n";
+        }
+        assertEquals(expectedSegment,SevenSegmentDisplay.displaySevenSegmentDisplay("11100001"));
+    }
+    @Test
+    void testThat8CanBeDisplayed(){
+        String expectedSegment = " # # # #\n";
+        for(int count = 0; count<4;count++) {
+            expectedSegment +="#       #\n";
+        }
+        expectedSegment += " # # # #\n";
+        for(int count = 0; count<4;count++) {
+            expectedSegment +="#       #\n";
+        }
+         expectedSegment += " # # # #\n";
+        assertEquals(expectedSegment,SevenSegmentDisplay.displaySevenSegmentDisplay("11111111"));
+    }
+    @Test
+    void testThat9CanBeDisplayed(){
+        String expectedSegment = " # # # #\n";
+        for(int count = 0; count<4;count++) {
+            expectedSegment +="#       #\n";
+        }
+        expectedSegment += " # # # #\n";
+        for(int count = 0; count<4;count++) {
+            expectedSegment +="        #\n";
+        }
+        assertEquals(expectedSegment,SevenSegmentDisplay.displaySevenSegmentDisplay("11100111"));
+    }
+    @Test
+    void testThat0CanBeDisplayed(){
+        String expectedSegment = " # # # #\n";
+        for(int count = 0; count<4;count++) {
+            expectedSegment +="#       #\n";
+        }
+        for(int count = 0; count<4;count++) {
+            expectedSegment +="#       #\n";
+        }
+        expectedSegment += " # # # #\n";
+        assertEquals(expectedSegment,SevenSegmentDisplay.displaySevenSegmentDisplay("11111101"));
+    }
+    @Test
+    void testThatWhenLastBinaryIs0NothingIsDisplayed(){
+        String expectedSegment = "";
+        assertEquals(expectedSegment,SevenSegmentDisplay.displaySevenSegmentDisplay("11111110"));
+    }
+
 
 
 
