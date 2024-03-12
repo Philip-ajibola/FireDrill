@@ -17,9 +17,7 @@ public abstract class User {
             this.phoneNumber = phoneNumber;
             this.age = age;
     }
-    public abstract void loginWithPhoneNumber(String phoneNumber,String password);
-    public abstract void loginWithEmail(String emailAddress,String password);
-    public abstract void resetPassword(String oldPassword,String newPassword);
+      public abstract void resetPassword(String oldPassword,String newPassword);
 
     public String getName() {
         return name;

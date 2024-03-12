@@ -1,14 +1,19 @@
 package estore;
 
+import dataStructure.MySet;
+
 import java.util.ArrayList;
 
 public class Estore {
 
     private ArrayList<Seller> sellers;
     private ArrayList<Product> products;
+    private ArrayList<Customer> customers;
+
     public Estore(){
         sellers = new ArrayList<>();
         products = new ArrayList<>();
+        customers = new ArrayList<>();
     }
 
     public void addSeller(String name, String homeAddress, String emailAddress, String phoneNumber, String password, int age) {
@@ -34,5 +39,10 @@ public class Estore {
         Product expectedProduct = null;
         for(Product product: products) if(productName.equals(product.productName()))expectedProduct = product;
         return expectedProduct;
+    }
+
+    public void addCustomer(String name, String homeAddress, String emailAddress, String phoneNumber, String password, int age) {
+        Customer customer = new Customer(name,homeAddress,emailAddress,phoneNumber,password,age);
+        customers.add(customer);
     }
 }
