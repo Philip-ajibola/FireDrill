@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Estore {
 
     private ArrayList<Seller> sellers;
+    private ArrayList<Product> products;
     public Estore(){
         sellers = new ArrayList<>();
     }
@@ -25,5 +26,10 @@ public class Estore {
     }
 
     public void addProductToListOfProduct(Product product) {
+        this.products.add(product);
+    }
+
+    public Product getProducts(String productName) {
+        for(Product product: products) if(productName.equals(product.productName))
     }
 }
