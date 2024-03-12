@@ -30,14 +30,67 @@ class SevenSegmentDisplayTest {
     void testThat2CanBeDisplayed(){
         String expectedSegment = " # # # #\n";
         for(int count = 0; count<4;count++) {
-            expectedSegment +="       #\n";
+            expectedSegment +="        #\n";
         }
         expectedSegment +=" # # # #\n";
         for(int count = 0; count<4;count++) {
             expectedSegment +="#       \n";
         }
         expectedSegment += " # # # #\n";
-        assertEquals(expectedSegment,SevenSegmentDisplay.displaySevenSegmentDisplay("00001101"));
+        assertEquals(expectedSegment,SevenSegmentDisplay.displaySevenSegmentDisplay("11011011"));
     }
+    @Test
+    void testThat3CanBeDisplayed(){
+        String expectedSegment = " # # # #\n";
+        for(int count = 0; count<4;count++) {
+            expectedSegment +="        #\n";
+        }
+        expectedSegment +=" # # # #\n";
+        for(int count = 0; count<4;count++) {
+            expectedSegment +="        #\n";
+        }
+        expectedSegment += " # # # #\n";
+        assertEquals(expectedSegment,SevenSegmentDisplay.displaySevenSegmentDisplay("11110011"));
+    }
+    @Test
+    void testThat4CanBeDisplayed(){
+        String expectedSegment = "";
+        for(int count = 0; count<4;count++) {
+            expectedSegment +="#       #\n";
+        }
+        expectedSegment +=" # # # #\n";
+        for(int count = 0; count<4;count++) {
+            expectedSegment +="        #\n";
+        }
+        assertEquals(expectedSegment,SevenSegmentDisplay.displaySevenSegmentDisplay("01100111"));
+    }
+    @Test
+    void testThat5CanBeDisplayed(){
+        String expectedSegment = " # # # #\n";
+        for(int count = 0; count<4;count++) {
+            expectedSegment +="#       \n";
+        }
+        expectedSegment +=" # # # #\n";
+        for(int count = 0; count<4;count++) {
+            expectedSegment +="        #\n";
+        }
+        expectedSegment +=" # # # #\n";
+        assertEquals(expectedSegment,SevenSegmentDisplay.displaySevenSegmentDisplay("10110111"));
+    }
+    @Test
+    void testThat6CanBeDisplayed(){
+        String expectedSegment = " # # # #\n";
+        for(int count = 0; count<4;count++) {
+            expectedSegment +="#       \n";
+        }
+        expectedSegment +=" # # # #\n";
+        for(int count = 0; count<4;count++) {
+            expectedSegment +="#       #\n";
+        }
+        expectedSegment +=" # # # #\n";
+        assertEquals(expectedSegment,SevenSegmentDisplay.displaySevenSegmentDisplay("10111111"));
+    }
+
+
 
 }

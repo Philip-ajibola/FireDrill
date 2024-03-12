@@ -33,17 +33,15 @@ public class SevenSegmentDisplay {
         String expectedSegment = "";
         if(condition1 && condition2)for(int count = 0; count<4;count++){
             expectedSegment +="#       #\n";
-           // if(count<3)expectedSegment += "\n";
+
         }
 
         if(condition1 && !condition2)for(int count = 0; count<4;count++) {
             expectedSegment +="#       \n";
-            //if(count<3)expectedSegment += "\n";
         }
 
         if(!condition1 && condition2)for(int count = 0; count<4;count++) {
-            expectedSegment +="       #\n";
-            //if(count<3)expectedSegment += "\n";
+            expectedSegment +="        #\n";
         }
         return expectedSegment;
     }
