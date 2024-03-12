@@ -45,5 +45,12 @@ class EstoreTest {
         estore.addCustomer("name","10 Yaba road","ajibola@gmail.com","09027531222","passwword",15);
         assertEquals(1,estore.getCustomers().size());
     }
+    @Test
+    public void testThatCustomerCanAddItemsToShoppingCart(){
+        Customer customer = new Customer("name","10 Yaba road","ajibola@gmail.com","09027531222","passwword",15);
+        Product product = new Product( 1, "productName",45.0,ProductCategory.ELECTRONICS,"description");
+        Item item = new Item(product,2);
+        customer.addItemToCart(item);
+    }
 
 }
