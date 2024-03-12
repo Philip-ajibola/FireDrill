@@ -8,6 +8,7 @@ public class Estore {
     private ArrayList<Product> products;
     public Estore(){
         sellers = new ArrayList<>();
+        products = new ArrayList<>();
     }
 
     public void addSeller(String name, String homeAddress, String emailAddress, String phoneNumber, String password, int age) {
@@ -30,6 +31,8 @@ public class Estore {
     }
 
     public Product getProducts(String productName) {
-        for(Product product: products) if(productName.equals(product.productName))
+        Product expectedProduct = null;
+        for(Product product: products) if(productName.equals(product.productName()))expectedProduct = product;
+        return expectedProduct;
     }
 }
