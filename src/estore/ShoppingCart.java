@@ -7,4 +7,11 @@ public class ShoppingCart {
     public ShoppingCart(){
         items = new ArrayList<>();
     }
+    public void addItemToShoppingList(Item item){
+        items.add(item);
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
 }

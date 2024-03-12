@@ -51,6 +51,7 @@ class EstoreTest {
         Product product = new Product( 1, "productName",45.0,ProductCategory.ELECTRONICS,"description");
         Item item = new Item(product,2);
         customer.addItemToCart(item);
+        assertEquals(1,customer.getItems().size());
     }
 
 }

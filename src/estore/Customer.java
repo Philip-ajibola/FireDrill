@@ -1,7 +1,9 @@
 package estore;
 
+import java.util.ArrayList;
+
 public class Customer extends User{
-    private ShoppingCart shoppingCart;
+    private ShoppingCart shoppingCart = null;
 
 
     public Customer(String name, String homeAddress, String emailAddress, String phoneNumber, String password, int age) {
@@ -15,5 +17,10 @@ public class Customer extends User{
     }
 
     public void addItemToCart(Item item) {
+        shoppingCart.addItemToShoppingList(item);
+    }
+
+    public ArrayList<Item> getItems() {
+        return shoppingCart.getItems();
     }
 }
