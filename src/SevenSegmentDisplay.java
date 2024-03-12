@@ -50,7 +50,7 @@ public class SevenSegmentDisplay {
             if(input.charAt(count)!='0' && input.charAt(count) !='1') throw new IllegalArgumentException("Binary Value Expected 0 and 1");
     }
     private static void verifyLength(String input){
-        if(input.length() != 8)throw new IllegalArgumentException("Invalid Input, Enter The Right Binary ");
+        if(input.length() != 8)throw new IllegalArgumentException("Invalid Input, Enter The Right Binary \n binary number should be of length 8");
     }
     private static boolean[] changeStringToBoolean(String input){
         boolean[] binary = new boolean[7];
