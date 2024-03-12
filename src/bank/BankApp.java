@@ -57,8 +57,8 @@ public class BankApp {
     }
     private static void displayOptionOfWhatUserShouldDo(Account account) {
         String userResponse = input("""
-                Hello\s """ + account.getName() + """
-                Your Account Number is\s """ + account.getNumber() + """
+                Hello \s""" + account.getName() + """
+                \nYour Account Number is  """ + account.getNumber() + """
                 
                 <<<<<<< What Would You Love To Do With Us Today >>>>>> +
                     [<1>] withdraw           [<2>] Deposit
@@ -68,8 +68,7 @@ public class BankApp {
                      [<5>] Check Balance     [<6>] Back
                 """);
         try{
-            int expectedResponse = Integer.parseInt(userResponse);
-            displayWhatUserWantsToDo(expectedResponse,account);
+            displayWhatUserWantsToDo(userResponse,account);
 
         }catch(Exception e) {
             print(" "+e.getMessage());
@@ -110,8 +109,10 @@ public class BankApp {
         if(!pin.equals(verifyPin)) throw new InvalidPinException("Invalid Pin");
         return pin;
     }
-    private static void displayWhatUserWantsToDo(int userResponse, Account account){
-        switch (userResponse){
+    private static void displayWhatUserWantsToDo(String userResponse, Account account){
+        if(!userResponse.matches("[0-9]+"))throw new IllegalArgumentException("Wrong Input \nEnter The Correct Input ");
+
+        switch (Integer.parseInt(userResponse)){
             case 1->withdraw(account);
             case 2->deposit(account);
             case 3->transfer(account);
@@ -137,7 +138,7 @@ public class BankApp {
         String pin = input("Enter Your Pin");
         bank.removeAccount(account,pin);
         print("Account Deactivated ");
-        displayOptionOfWhatUserShouldDo(account);
+        displayApp();
     }
 
     private static void transfer(Account account) {
