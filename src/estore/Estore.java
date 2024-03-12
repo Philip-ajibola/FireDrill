@@ -45,4 +45,8 @@ public class Estore {
         Customer customer = new Customer(name,homeAddress,emailAddress,phoneNumber,password,age);
         customers.add(customer);
     }
+
+    public ArrayList<Customer> getCustomers() {
+        return customers;
+    }
 }

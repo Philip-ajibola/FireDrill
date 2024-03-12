@@ -43,7 +43,7 @@ class EstoreTest {
     public void testThatCustomerCanCreateAccount(){
         Estore estore = new Estore();
         estore.addCustomer("name","10 Yaba road","ajibola@gmail.com","09027531222","passwword",15);
-
+        assertEquals(1,estore.getCustomers().size());
     }
 
 }
