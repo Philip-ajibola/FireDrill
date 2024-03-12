@@ -43,6 +43,7 @@ public class TicTacTo {
     }
     private void validatePlayerInput(int input){
         if(input >9) throw new IllegalArgumentException("Range Out Of Band\n Range Is Between 1 - 9");
+
     }
     public String getWinner() {
         return determineWinner();
