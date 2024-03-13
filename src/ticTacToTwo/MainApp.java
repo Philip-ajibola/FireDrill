@@ -47,7 +47,9 @@ public class MainApp {
         ticTacTo.pickPosition( Integer.parseInt(player1Response),ticTacTo.getPlayers()[0].type());
     }
     private static void checkEachCharOfUSerInput(String userInput){
-        if(!userInput.matches("[0-10]+"))throw new IllegalArgumentException("Invalid Input \n Enter a valid input ");
+        if(!userInput.matches("[0-10]+") || userInput.trim().isEmpty()){
+            throw new IllegalArgumentException("Invalid Input \n Enter a valid input ");
+        }
     }
 
     private static void validatePlayer2Response(TicTacTo ticTacTo){
