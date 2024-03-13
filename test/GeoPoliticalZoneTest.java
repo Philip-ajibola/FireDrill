@@ -28,5 +28,37 @@ class GeoPoliticalZoneTest {
         assertTrue(states.contain(state));
     }
 
+    @Test
+    public void testThatNorthEastContainAState(){
+        GeoPoliticalZone states = GeoPoliticalZone.NORTH_EAST;
+        String state = "Adamawa";
+        assertTrue(states.contain(state));
+    }
+
+    @Test
+    public void testThatNorthWestContainAState(){
+        GeoPoliticalZone states = GeoPoliticalZone.NORTH_WEST;
+        String state = "Katsina";
+        assertTrue(states.contain(state));
+    }
+    @Test
+    public void testThatSouthEastContainAState(){
+        GeoPoliticalZone states = GeoPoliticalZone.SOUTH_EAST;
+        String state = "Abia";
+        assertTrue(states.contain(state));
+    }
+    @Test
+    public void testThatSouthWestContainAState(){
+        GeoPoliticalZone states = GeoPoliticalZone.SOUTH_WEST;
+        String state = "Ekiti";
+        assertTrue(states.contain(state));
+    }
+@Test
+    public void testThatSouthSouthContainAState(){
+        GeoPoliticalZone states = GeoPoliticalZone.SOUTH_SOUTH;
+        String state = "Rivers";
+        assertTrue(states.contain(state));
+    }
+
 
 }
