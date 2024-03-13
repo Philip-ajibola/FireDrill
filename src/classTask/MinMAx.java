@@ -1,7 +1,6 @@
 package classTask;
 
 public class MinMAx {
-
     public static int[] getMinMax(int[] array) {
         int[] result = new int[2];
         int total = 0;
@@ -16,5 +15,4 @@ public class MinMAx {
         }
         return result = new int[]{min,max};
     }
-
     }

@@ -11,5 +11,4 @@ class MinMAxTest {
         int[] expectedArray = {10,14};
         assertArrayEquals(expectedArray,MinMAx.getMinMax(array));
     }
-
 }
