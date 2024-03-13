@@ -16,15 +16,16 @@ public class StudentGrade{
             try {
                 System.out.println("How Many Student Do You Have? ");
                 numberOfStudent = input.nextInt();
+                if(numberOfStudent<=0) throw new IllegalArgumentException("Invalid Number Of Student");
                 System.out.println("How Many Subject do they offer? ");
                 numberOfSubject = input.nextInt();
+                if(numberOfSubject<=0) throw new IllegalArgumentException("Invalid Number Of Subject");
                 System.out.println("Saving >>>>>>>>>>>>>>>>");
                 System.out.println("Successfully Saved ");
                 System.out.println();
                 condition = false;
-            } catch (InputMismatchException e) {
+            } catch (InputMismatchException | IllegalArgumentException e) {
                 System.out.println("Input MisMatchException\nEnter A Valid input ");
-                input.next();
             }
         }
 
@@ -47,7 +48,7 @@ public class StudentGrade{
                         System.out.println("Successfully Saved ");
                         System.out.println();
                     }catch(Exception e){
-                        System.out.println(e.getMessage());
+                        System.out.println("Input MismatchException");
                         input.next();
                     }
                 }
