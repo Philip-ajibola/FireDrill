@@ -9,8 +9,12 @@ public class StudentGrade{
     private static Scanner input = new Scanner(System.in);
 
     public void setGrade(){
-        System.out.println("How Many Student Do You Have? ");
-        int numberOfStudent = input.nextInt();
+        try {
+            System.out.println("How Many Student Do You Have? ");
+            int numberOfStudent = input.nextInt();
+        }catch(Exception e){
+
+        }
         System.out.println("How Many Subject do they offer? ");
         int numberOfSubject = input.nextInt();
         System.out.println("Saving >>>>>>>>>>>>>>>>");
@@ -54,13 +58,6 @@ public class StudentGrade{
         }
 
         return averageScore;
-    }
-    public ArrayList<Integer> convertArrayToArrayList(){
-        ArrayList <Integer> numbers = new ArrayList<Integer>(grade.length);
-        for(int counter = 0; counter<numbers.size();counter++){
-            numbers.add(getStudentTotal()[counter]);
-        }
-        return numbers;
     }
     public int[] reverseTotal(){
         int[] reverse = new int[getStudentTotal().length];
