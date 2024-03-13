@@ -1,40 +1,56 @@
 package studentGrade;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Arrays;
-import java.util.ArrayList;
 
 public class StudentGrade{
     private int[][]  grade;
+    private  int numberOfStudent;
+    private  int numberOfSubject;
     private static Scanner input = new Scanner(System.in);
 
     public void setGrade(){
-        try {
-            System.out.println("How Many Student Do You Have? ");
-            int numberOfStudent = input.nextInt();
-        }catch(Exception e){
-
+        boolean condition = true;
+        while (condition) {
+            try {
+                System.out.println("How Many Student Do You Have? ");
+                numberOfStudent = input.nextInt();
+                System.out.println("How Many Subject do they offer? ");
+                numberOfSubject = input.nextInt();
+                System.out.println("Saving >>>>>>>>>>>>>>>>");
+                System.out.println("Successfully Saved ");
+                System.out.println();
+                condition = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Input MisMatchException\nEnter A Valid input ");
+                input.next();
+            }
         }
-        System.out.println("How Many Subject do they offer? ");
-        int numberOfSubject = input.nextInt();
-        System.out.println("Saving >>>>>>>>>>>>>>>>");
-        System.out.println("Sucessfully Saved ");
-        System.out.println();
 
         grade = new int[numberOfStudent][numberOfSubject];
         for(int counter = 0;counter<grade.length;counter++){
             for(int count = 0;count<grade[counter].length;count++){
-                System.out.printf("Entering Score For Student %d%n",counter+1);
-                System.out.printf("Enter Score For Subject %d%n",count+1);
-                grade[counter][count] = input.nextInt();
-                while(grade[counter][count]<0 || grade[counter][count]>=100){
-                    System.out.println("I Think This Was A Mistake \n Please Enter Student Real Score");
-                    grade[counter][count] = input.nextInt();
+                 condition= true;
+                while(condition){
+                    try {
+                        System.out.printf("Entering Score For Student %d%n", counter + 1);
+                        System.out.printf("Enter Score For Subject %d%n", count + 1);
+                        grade[counter][count] = input.nextInt();
+                        while (grade[counter][count] < 0 || grade[counter][count] >= 100) {
+                            System.out.println("I Think This Was A Mistake \n Please Enter Student Real Score");
+                            grade[counter][count] = input.nextInt();
+                        }
+                        condition = false;
 
+                        System.out.println("Saving >>>>>>>>>>>>>>>>");
+                        System.out.println("Successfully Saved ");
+                        System.out.println();
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                        input.next();
+                    }
                 }
-                System.out.println("Saving >>>>>>>>>>>>>>>>");
-                System.out.println("Successfully Saved ");
-                System.out.println();
             }
         }
     }
