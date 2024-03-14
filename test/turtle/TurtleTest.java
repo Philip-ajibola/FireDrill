@@ -3,6 +3,7 @@ package turtle;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static turtle.Direction.*;
 
 class TurtleTest {
     @Test
@@ -30,7 +31,14 @@ class TurtleTest {
     void testThatTurtleCanTurnLeftWhileFacingEast(){
         Turtle turtle = new Turtle();
         turtle.turnLeft();
-        assertSame(Direction.EAST,turtle.getCurrentDirection());
+        assertSame(EAST,turtle.getCurrentDirection());
+    }
+    @Test
+    void testThatTurtleCanTurnLeftWhileFacingNorth(){
+        Turtle turtle = new Turtle();
+        turtle.turnLeft();
+        turtle.turnLeft();
+        assertSame(WEST,turtle.getCurrentDirection());
     }
 
 
