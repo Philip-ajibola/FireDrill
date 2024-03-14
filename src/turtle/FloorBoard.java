@@ -8,27 +8,35 @@ public class FloorBoard {
     private int verticalPosition = 0;
     //private int[] position;
 
-    public void move(int lengthOfMovement,Direction direction) {
+    public void move(int lengthOfMovement,Direction direction, int[] array) {
+                            horizontalPosition = array[1];
+                            verticalPosition = array[0];
         switch (direction) {
             case EAST ->{
-                for (int count = 0; count < lengthOfMovement; count++) {
-                    BOARD[verticalPosition][horizontalPosition++] = 1;
-                }
+                        int count = 0;
+                    for (; count < lengthOfMovement;count++){
+                        if(count>0)horizontalPosition++;
+                        BOARD[verticalPosition][horizontalPosition] = 1;
+                    }
             }
             case SOUTH ->{
-                for (int count = 0; count < lengthOfMovement; count++) {
-                BOARD[verticalPosition++][horizontalPosition-1] = 1;
-            }
+                int count = 0;
+                for (; count < lengthOfMovement ; count++){
+                    if(count>0)verticalPosition++;
+                    BOARD[verticalPosition][horizontalPosition] = 1;
+                }
             }
             case WEST -> {
-                for (int count = 0; count < lengthOfMovement; count++) {
-                    BOARD[verticalPosition-1][--horizontalPosition] = 1;
+                for (int count = lengthOfMovement; count > 0 ; count--){
+                    if(count < lengthOfMovement)horizontalPosition--;
+                    BOARD[verticalPosition][horizontalPosition] = 1;
                 }
             }
             case NORTH -> {
-                for (int count = 0; count < lengthOfMovement; count++) {
-                    BOARD[--verticalPosition][horizontalPosition] = 1;
-                }
+                    for (int count = lengthOfMovement; count > 0; count--){
+                        if(count<lengthOfMovement)verticalPosition--;
+                        BOARD[verticalPosition][horizontalPosition] = 1;
+                    }
             }
         }
     }

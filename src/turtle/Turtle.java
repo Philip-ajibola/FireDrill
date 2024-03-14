@@ -7,6 +7,7 @@ public class Turtle {
     private boolean penIsUp = true;
     private  Direction currentDirection = EAST;
     private  FloorBoard floorBoard = new FloorBoard();
+    private int[] position  = new int[2];
 
     public boolean isPenUp() {
         return penIsUp;
@@ -33,11 +34,16 @@ public class Turtle {
     }
 
     public void move(int lengthOfMovement) {
-        floorBoard.move(lengthOfMovement,currentDirection);
+        floorBoard.move(lengthOfMovement,currentDirection,position);
+        setPosition(floorBoard.getPosition());
         floorBoard.displayBoard();
     }
 
     public int[] getTurtlePosition() {
-        return floorBoard.getPosition();
+        return position;
     }
+    public void setPosition(int[] array){
+        this.position = array;
+    }
+
 }
