@@ -11,4 +11,16 @@ public class Turtle {
     public void penDown() {
         penIsUp = false;
     }
+
+    public void penUp() {
+        penIsUp = true;
+    }
+
+    public Direction getCurrentDirection() {
+        return Direction.EAST;
+    }
+
+    public void turnLeft() {
+
+    }
 }
