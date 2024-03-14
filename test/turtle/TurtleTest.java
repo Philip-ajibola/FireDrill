@@ -82,6 +82,11 @@ class TurtleTest {
         turtle.turnRight();
         assertSame(EAST,turtle.getCurrentDirection());
     }
+    @Test
+    public void testThatTurtleCanMove(){
+        turtle.move(10);
+        assertArrayEquals(new int[]{1,10},turtle.getTurtlePosition());
+    }
 
 
 
