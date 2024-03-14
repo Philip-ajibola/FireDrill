@@ -34,6 +34,7 @@ public class Turtle {
 
     public void move(int lengthOfMovement) {
         floorBoard.move(lengthOfMovement,currentDirection);
+        floorBoard.displayBoard();
     }
 
     public int[] getTurtlePosition() {

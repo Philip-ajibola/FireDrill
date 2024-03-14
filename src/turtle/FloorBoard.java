@@ -1,22 +1,35 @@
 package turtle;
 
+import java.util.Arrays;
+
 public class FloorBoard {
     private final int[][] BOARD = new int[20][20];
-    private int horizontalPosition = 1;
-    private int verticalPosition = 1;
+    private int horizontalPosition = 0;
+    private int verticalPosition = 0;
     //private int[] position;
 
     public void move(int lengthOfMovement,Direction direction) {
-        if(direction == Direction.EAST) {
-            int count = 0;
-            for(; count<lengthOfMovement;count++){
-                BOARD[horizontalPosition][count] = 1;
+        switch (direction) {
+            case EAST ->{
+                for (int count = 0; count < lengthOfMovement; count++) {
+                    BOARD[verticalPosition][horizontalPosition++] = 1;
+                }
+
             }
-            horizontalPosition = count;
+            case SOUTH ->{
+                for (int count = 0; count < lengthOfMovement; count++) {
+                BOARD[verticalPosition++][horizontalPosition-1] = 1;
+            }
+            }
         }
     }
 
     public int[] getPosition(){
         return  new int[]{verticalPosition,horizontalPosition};
+    }
+    public void displayBoard(){
+        for(int[] movement: BOARD){
+            System.out.println(Arrays.toString(movement));
+        }
     }
 }
