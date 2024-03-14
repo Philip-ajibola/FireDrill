@@ -1,26 +1,29 @@
 package turtle;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static turtle.Direction.*;
 
 class TurtleTest {
+    private Turtle turtle;
+    @BeforeEach
+    public void createTurtle(){
+        turtle = new Turtle();
+    }
     @Test
     void testThatPenIsUp(){
-        Turtle turtle = new Turtle();
         assertTrue(turtle.isPenUp());
     }
     @Test
     void testThatPenIsDown(){
-        Turtle turtle = new Turtle();
         assertTrue(turtle.isPenUp());
         turtle.penDown();
         assertFalse(turtle.isPenUp());
     }
     @Test
     void testThatCanBePutUpWhenPenIsPutDown(){
-        Turtle turtle = new Turtle();
         assertTrue(turtle.isPenUp());
         turtle.penDown();
         assertFalse(turtle.isPenUp());
@@ -29,20 +32,17 @@ class TurtleTest {
     }
     @Test
     void testThatTurtleCanTurnLeftWhileFacingEast(){
-        Turtle turtle = new Turtle();
         turtle.turnLeft();
         assertSame(NORTH,turtle.getCurrentDirection());
     }
     @Test
     void testThatTurtleCanTurnLeftWhileFacingNorth(){
-        Turtle turtle = new Turtle();
         turtle.turnLeft();
         turtle.turnLeft();
         assertSame(WEST,turtle.getCurrentDirection());
     }
     @Test
     void testThatTurtleCanTurnLeftWhileFacingWest(){
-        Turtle turtle = new Turtle();
         turtle.turnLeft();
         turtle.turnLeft();
         turtle.turnLeft();
@@ -50,12 +50,16 @@ class TurtleTest {
     }
     @Test
     void testThatTurtleCanTurnLeftWhileFacingSouth(){
-        Turtle turtle = new Turtle();
         turtle.turnLeft();
         turtle.turnLeft();
         turtle.turnLeft();
         turtle.turnLeft();
         assertSame(EAST,turtle.getCurrentDirection());
+    }
+    @Test
+    public void testThatTurtleCanTurnRightWhileFacingEast(){
+        turtle.turnRight();
+        assertSame(SOUTH,turtle.getCurrentDirection());
     }
 
 
