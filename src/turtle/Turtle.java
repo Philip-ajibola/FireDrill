@@ -24,7 +24,7 @@ public class Turtle {
     }
 
     public void turnLeft() {
-        currentDirection = currentDirection.turnleft();
+        currentDirection = currentDirection.turnLeft();
     }
 
     public void turnRight() {

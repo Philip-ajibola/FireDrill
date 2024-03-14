@@ -61,6 +61,27 @@ class TurtleTest {
         turtle.turnRight();
         assertSame(SOUTH,turtle.getCurrentDirection());
     }
+    @Test
+    public void testThatTurtleCanTurnRightWhileFacingSouth(){
+        turtle.turnRight();
+        turtle.turnRight();
+        assertSame(WEST,turtle.getCurrentDirection());
+    }
+    @Test
+    public void testThatTurtleCanTurnRightWhileFacingWest(){
+        turtle.turnRight();
+        turtle.turnRight();
+        turtle.turnRight();
+        assertSame(NORTH,turtle.getCurrentDirection());
+    }
+    @Test
+    public void testThatTurtleCanTurnRightWhileFacingNorth(){
+        turtle.turnRight();
+        turtle.turnRight();
+        turtle.turnRight();
+        turtle.turnRight();
+        assertSame(EAST,turtle.getCurrentDirection());
+    }
 
 
 
