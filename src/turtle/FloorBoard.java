@@ -21,6 +21,12 @@ public class FloorBoard {
                 BOARD[verticalPosition++][horizontalPosition-1] = 1;
             }
             }
+            case WEST -> {
+               // horizontalPosition--;
+                for (int count = 0; count < lengthOfMovement; count++) {
+                    BOARD[verticalPosition-1][--horizontalPosition] = 1;
+                }
+            }
         }
     }
 
