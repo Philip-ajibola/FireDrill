@@ -18,8 +18,6 @@ public class MinMAx {
         return result = new int[]{min,max};
     }
     public static int[] getMinMax2(int[] array){
-        array = Arrays.stream(array).sorted().toArray();
-        int[] result = new int[2];
-        for()
+        return new int[]{Arrays.stream(array).sum()-Arrays.stream(array).max().getAsInt(),Arrays.stream(array).sum()-Arrays.stream(array).min().getAsInt()};
     }
 }
