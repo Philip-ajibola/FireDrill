@@ -24,11 +24,6 @@ public class Turtle {
     }
 
     public void turnLeft() {
-        switch (currentDirection){
-            case EAST -> currentDirection = NORTH;
-            case NORTH -> currentDirection = WEST;
-            case WEST -> currentDirection = SOUTH;
-            case SOUTH -> currentDirection = EAST;
-        }
+        currentDirection = currentDirection.turnleft();
     }
 }
