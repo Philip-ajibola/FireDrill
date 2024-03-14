@@ -9,6 +9,6 @@ class MinMAxTest {
     void testThatMethodReturnMinimumAndMAxiMumValueOfAnArray(){
         int[] array = {3,4,2,5,1};
         int[] expectedArray = {10,14};
-        assertArrayEquals(expectedArray,MinMAx.getMinMax(array));
+        assertArrayEquals(expectedArray,MinMAx.getMinMaxOf(array));
     }
 }

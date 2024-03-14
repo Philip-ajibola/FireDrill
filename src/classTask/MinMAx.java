@@ -1,7 +1,9 @@
 package classTask;
 
+import java.util.Arrays;
+
 public class MinMAx {
-    public static int[] getMinMax(int[] array) {
+    public static int[] getMinMaxOf(int[] array) {
         int[] result = new int[2];
         int total = 0;
         for(int count = 0; count<array.length;count++) {
@@ -15,4 +17,9 @@ public class MinMAx {
         }
         return result = new int[]{min,max};
     }
+    public static int[] getMinMax2(int[] array){
+        array = Arrays.stream(array).sorted().toArray();
+        int[] result = new int[2];
+        for()
     }
+}
