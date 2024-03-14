@@ -14,7 +14,6 @@ public class FloorBoard {
                 for (int count = 0; count < lengthOfMovement; count++) {
                     BOARD[verticalPosition][horizontalPosition++] = 1;
                 }
-
             }
             case SOUTH ->{
                 for (int count = 0; count < lengthOfMovement; count++) {
@@ -22,9 +21,13 @@ public class FloorBoard {
             }
             }
             case WEST -> {
-               // horizontalPosition--;
                 for (int count = 0; count < lengthOfMovement; count++) {
                     BOARD[verticalPosition-1][--horizontalPosition] = 1;
+                }
+            }
+            case NORTH -> {
+                for (int count = 0; count < lengthOfMovement; count++) {
+                    BOARD[--verticalPosition][horizontalPosition] = 1;
                 }
             }
         }

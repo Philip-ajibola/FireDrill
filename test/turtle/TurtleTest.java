@@ -113,6 +113,19 @@ class TurtleTest {
         assertArrayEquals(new int[]{10,0},turtle.getTurtlePosition());
 
     }
+    @Test
+    public void testThatWhenTurtleMoveToWestItCanMoveToNorth(){
+        turtle.move(10);
+        turtle.turnRight();
+        turtle.move(10);
+        turtle.turnRight();
+        turtle.move(10);
+        turtle.turnRight();
+        turtle.move(10);
+
+        assertArrayEquals(new int[]{0,0},turtle.getTurtlePosition());
+
+    }
 
 
 
