@@ -31,7 +31,7 @@ class TurtleTest {
     void testThatTurtleCanTurnLeftWhileFacingEast(){
         Turtle turtle = new Turtle();
         turtle.turnLeft();
-        assertSame(EAST,turtle.getCurrentDirection());
+        assertSame(NORTH,turtle.getCurrentDirection());
     }
     @Test
     void testThatTurtleCanTurnLeftWhileFacingNorth(){

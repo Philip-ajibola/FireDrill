@@ -20,7 +20,7 @@ public class Turtle {
     }
 
     public Direction getCurrentDirection() {
-        return Direction.EAST;
+        return currentDirection;
     }
 
     public void turnLeft() {
