@@ -12,7 +12,6 @@ class TurtleTest {
     @BeforeEach
     public void createTurtle(){
         turtle = new Turtle();
-        floorBoard = new FloorBoard();
     }
     @Test
     void testThatPenIsUp(){
@@ -86,83 +85,83 @@ class TurtleTest {
     }
     @Test
     public void testThatTurtleCanMove(){
-        turtle.move(10,floorBoard);
+        turtle.move(10);
         assertArrayEquals(new int[]{0,9},turtle.getTurtlePosition());
     }
     @Test
     public void testThatTurtleWhenTurtleTurnRight(){
         turtle.turnRight();
-        turtle.move(10,floorBoard);
+        turtle.move(10);
 
         assertArrayEquals(new int[]{9,0},turtle.getTurtlePosition());
     }
     @Test
     public void testThatTurtleCanMoveEastThenTurnRightAndMove(){
-        turtle.move(10,floorBoard);
+        turtle.move(10);
         turtle.turnRight();
-        turtle.move(10,floorBoard);
+        turtle.move(10);
 
         assertArrayEquals(new int[]{9,9},turtle.getTurtlePosition());
     }
     @Test
     public void testThatWhenTurtleMoveToSouthItCanMoveToWest(){
-        turtle.move(10,floorBoard);
+        turtle.move(10);
         turtle.turnRight();
-        turtle.move(10,floorBoard);
+        turtle.move(10);
         turtle.turnRight();
-        turtle.move(10,floorBoard);
+        turtle.move(10);
 
         assertArrayEquals(new int[]{9,0},turtle.getTurtlePosition());
 
     }
     @Test
     public void testThatWhenTurtleMoveToWestItCanMoveToNorth(){
-        turtle.move(10,floorBoard);
+        turtle.move(10);
         turtle.turnRight();
-        turtle.move(10,floorBoard);
+        turtle.move(10);
         turtle.turnRight();
-        turtle.move(10,floorBoard);
+        turtle.move(10);
         turtle.turnRight();
-        turtle.move(10,floorBoard);
+        turtle.move(10);
 
         assertArrayEquals(new int[]{0,0},turtle.getTurtlePosition());
 
     }
     @Test
     public void testThatWhenTurtleMoveToSouthItCanMoveBackToEast(){
-        turtle.move(10,floorBoard);
+        turtle.move(10);
         turtle.turnRight();
-        turtle.move(10,floorBoard);
+        turtle.move(10);
         turtle.turnLeft();
-        turtle.move(10,floorBoard);
+        turtle.move(10);
 
         assertArrayEquals(new int[]{9,18},turtle.getTurtlePosition());
 
     }
     @Test
     public void testThatWhenTurtleMoveToEastItCanMoveBackToNorth(){
-        turtle.move(10,floorBoard);
+        turtle.move(10);
         turtle.turnRight();
-        turtle.move(10,floorBoard);
+        turtle.move(10);
         turtle.turnLeft();
-        turtle.move(10,floorBoard);
+        turtle.move(10);
         turtle.turnLeft();
-        turtle.move(10,floorBoard);
+        turtle.move(10);
 
         assertArrayEquals(new int[]{0,18},turtle.getTurtlePosition());
 
     }
     @Test
     public void testThatWhenTurtleMoveToNorthItCanMoveBackToWest(){
-        turtle.move(10,floorBoard);
+        turtle.move(10);
         turtle.turnRight();
-        turtle.move(10,floorBoard);
+        turtle.move(10);
         turtle.turnLeft();
-        turtle.move(10,floorBoard);
+        turtle.move(10);
         turtle.turnLeft();
-        turtle.move(10,floorBoard);
+        turtle.move(10);
         turtle.turnLeft();
-        turtle.move(10,floorBoard);
+        turtle.move(10);
 
         assertArrayEquals(new int[]{0,9},turtle.getTurtlePosition());
 

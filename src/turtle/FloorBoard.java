@@ -8,7 +8,7 @@ public class FloorBoard {
     private int verticalPosition = 0;
     //private int[] position;
 
-    public void move(int lengthOfMovement,Direction direction, int[] array) {
+    public void move(int lengthOfMovement,Direction direction,int[] array) {
                             horizontalPosition = array[1];
                             verticalPosition = array[0];
         switch (direction) {
