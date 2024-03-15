@@ -1,13 +1,15 @@
 package turtle;
 
+import java.util.Scanner;
+
 import static turtle.Direction.*;
 
 public class Turtle {
 
     private boolean penIsUp = true;
-    private  Direction currentDirection = EAST;
-    private  FloorBoard floorBoard = new FloorBoard();
-    private int[] position  = new int[2];
+    private Direction currentDirection = EAST;
+    private FloorBoard floorBoard = new FloorBoard();
+    private int[] position = new int[2];
 
     public boolean isPenUp() {
         return penIsUp;
@@ -34,16 +36,23 @@ public class Turtle {
     }
 
     public void move(int lengthOfMovement) {
-        floorBoard.move(lengthOfMovement,currentDirection,position);
+        floorBoard.move(lengthOfMovement, currentDirection, position, penIsUp);
         setPosition(floorBoard.getPosition());
-        floorBoard.displayBoard();
     }
 
     public int[] getTurtlePosition() {
         return position;
     }
-    public void setPosition(int[] array){
+
+    public void setPosition(int[] array) {
         this.position = array;
+    }
+
+    public int[][] getBoard() {
+        return floorBoard.getBoard();
+    }
+    public FloorBoard getFloorBoard(){
+        return floorBoard;
     }
 
 }
