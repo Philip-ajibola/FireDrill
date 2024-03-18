@@ -1,13 +1,18 @@
 package estore;
 
+import estore.Exception.WrongPasswordException;
+
 import java.util.ArrayList;
 
 public class Customer extends User{
     private ShoppingCart shoppingCart = new ShoppingCart();
+    private double itemsAmount ;
+    private BillingFormat billingFormat;
 
 
-    public Customer(String name, String homeAddress, String emailAddress, String phoneNumber, String password, int age) {
+    public Customer(String name,Address homeAddress, String emailAddress, String phoneNumber, String password, int age,BillingFormat billingFormat) {
         super(name, homeAddress, emailAddress, phoneNumber, password, age);
+        this.billingFormat = billingFormat;
     }
 
     @Override
@@ -26,5 +31,13 @@ public class Customer extends User{
 
     public void removeItem(Item item) {
         shoppingCart.removeItem(item);
+    }
+
+    public double order(Order order) {
+        return order.calculateAmount();
+    }
+
+    public BillingFormat getBillingFormat() {
+        return billingFormat;
     }
 }
