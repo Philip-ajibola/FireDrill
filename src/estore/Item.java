@@ -7,4 +7,7 @@ public class Item {
         this.quantity = quantity;
         this.product = product;
     }
+    public double calculateItemAmount(){
+        return product.price()*quantity;
+    }
 }
