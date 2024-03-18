@@ -1,4 +1,4 @@
-package estore;
+package estore.Exception;
 
 public class WrongPhoneNumberException extends RuntimeException {
     public WrongPhoneNumberException(String wrongPhoneNumber) {
