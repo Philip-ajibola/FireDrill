@@ -1,8 +1,10 @@
 package estore;
 
 
+import estore.Exception.WrongPasswordException;
+
 public class Seller extends User {
-    public Seller(String name, String homeAddress, String emailAddress, String phoneNumber, String password, int age) {
+    public Seller(String name, Address homeAddress, String emailAddress, String phoneNumber, String password, int age) {
         super(name, homeAddress, emailAddress, phoneNumber, password, age);
     }
 
@@ -12,13 +14,15 @@ public class Seller extends User {
         super.setPassword(newPassword);
     }
 
-    public void addProduct(Estore estore,Product product) {
-        estore.addProductToListOfProduct(product);
+    public void addProduct(Admin admin,Product product,Estore estore) {
+        admin.addProductToListOfProduct(product,estore);
     }
 
-    public void removeProduct(Estore estore,String productName) {
-        estore.removeProductFromList(productName);
-
+    public void removeProduct(Admin admin,Product product,Estore estore) {
+        admin.removeProductFromList(product,estore);
+    }
+    public void removeProduct(Admin admin,String productName,Estore estore) {
+        admin.removeProductFromList(productName,estore);
     }
 
 
