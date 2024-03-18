@@ -1,60 +1,59 @@
 package estore;
 
-import dataStructure.MySet;
-
 import java.util.ArrayList;
+import java.util.List;
 
 public class Estore {
+    private String name;
+    private Admin admin;
+    private List<Product> products = new ArrayList<>();
+    private ArrayList<Seller> sellers = new ArrayList<>();
+    private ArrayList<Customer> customers = new ArrayList<>();
 
-    private ArrayList<Seller> sellers;
-    private ArrayList<Product> products;
-    private ArrayList<Customer> customers;
-
-    public Estore(){
-        sellers = new ArrayList<>();
-        products = new ArrayList<>();
-        customers = new ArrayList<>();
+    public void addSeller(Seller seller) {
+        sellers.add(seller);
+    }
+    public void addCustomer(Customer customer) {
+        customers.add(customer);
     }
 
-    public void addSeller(String name, String homeAddress, String emailAddress, String phoneNumber, String password, int age) {
-        Seller seller = new Seller(name,homeAddress,emailAddress,phoneNumber,password,age);
-        sellers.add(seller);
+    public Seller findSeller(Seller seller){
+        if(seller == null) throw new UserNotfoundException("User Not Found");
+        for(Seller seller1: sellers){
+            if( seller1 == seller) seller = seller1;
+        }
+        return seller;
     }
 
     public ArrayList<Seller> getSellers() {
         return sellers;
     }
 
-    public Seller findSellerWithSellerPhoneNumber(String phoneNumber) {
-        Seller expectedSeller  = null;
-        for(Seller seller: sellers)if(phoneNumber.equals(seller.getPhoneNumber())) expectedSeller =  seller;
-        return expectedSeller;
-    }
-
-    public void addProductToListOfProduct(Product product) {
-        this.products.add(product);
-    }
-
     public Product getProducts(String productName) {
         Product expectedProduct = null;
-        for(Product product: products) if(productName.equals(product.productName()))expectedProduct = product;
+        for(Product product: products){
+            if(product.productName().equals(productName)) expectedProduct = product;
+        }
+        if(expectedProduct == null) throw new ProductNotFoundException("Can't Find Product ");
         return expectedProduct;
     }
 
-    public void addCustomer(String name, String homeAddress, String emailAddress, String phoneNumber, String password, int age) {
-        Customer customer = new Customer(name,homeAddress,emailAddress,phoneNumber,password,age);
-        customers.add(customer);
+    public void addProduct(Product product) {
+        products.add(product);
     }
 
-    public ArrayList<Customer> getCustomers() {
-        return customers;
+    public void removeProduct(Product product) {
+        products.removeIf(product1 -> product1 == product);
+    }
+    public void removeProduct(String productName) {
+        products.removeIf(product1 -> product1.productName().equals(productName));
     }
 
-    public void removeProductFromList(String productName) {
-        products.removeIf(product -> productName.equals(product.productName()));
+    public int getListOfProduct() {
+        return products.size();
     }
 
-    public ArrayList<Product> getListOfProduct() {
-        return products;
+    public int getListCustomers() {
+        return customers.size();
     }
 }
